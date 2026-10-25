@@ -1,0 +1,13 @@
+# секреты и данные
+.env
+data/shop.db
+data/shop.db-wal
+data/shop.db-shm
+*.db
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
+static/uploads/*
+!static/uploads/README.txt

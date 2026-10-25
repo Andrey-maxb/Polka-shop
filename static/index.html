@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ПОЛКА — товары для дома, техники и жизни. Доставка в ПВЗ Ozon</title>
+<meta name="description" content="Товары для дома, кухни, авто и спорта. Доставка в пункты выдачи Ozon по всей России, оплата картой, электронный чек.">
+<link rel="stylesheet" href="/store.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%233a34d6'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>П</text></svg>">
+</head>
+<body>
+<div class="topbar">
+  <div class="wrap">
+    <div class="marquee">
+      <span>📦 Доставка в 27 000+ пунктов выдачи Ozon по всей России</span>
+      <span>🚚 Бесплатно от 7 000 ₽</span>
+      <span>🧾 Электронный чек на почту</span>
+    </div>
+    <a href="#/delivery">Доставка и оплата</a>
+  </div>
+</div>
+
+<header class="header">
+  <div class="wrap">
+    <a class="logo" href="#/"><span class="mark">П</span>ПОЛКА</a>
+    <form class="search" id="searchForm" role="search">
+      <span class="icon">🔍</span>
+      <input id="searchInput" type="search" placeholder="Найти товар — например, «повербанк» или «футболка»" autocomplete="off" aria-label="Поиск по каталогу">
+      <button class="go" type="submit">Найти</button>
+    </form>
+    <div class="header-actions">
+      <a class="icon-btn" id="pvzJump" href="#/delivery" title="Доставка в ПВЗ Ozon">📍 <span class="nowrap">ПВЗ Ozon</span></a>
+      <button class="icon-btn" id="cartBtn" title="Корзина">🛍️ <span class="nowrap">Корзина</span> <span class="badge hidden" id="cartCount">0</span></button>
+    </div>
+  </div>
+</header>
+
+<nav class="catnav"><div class="wrap" id="catnav"></div></nav>
+
+<main id="app"></main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="logo"><span class="mark">П</span> ПОЛКА</div>
+        <p>Товары для дома, техники и жизни. Работаем с доставкой в пункты выдачи Ozon по всей России.</p>
+        <p class="tiny" id="sellerInfo">ИП Иванов Иван Иванович · ИНН 000000000000</p>
+      </div>
+      <div>
+        <h5>Магазин</h5>
+        <a href="#/catalog">Каталог</a>
+        <a href="#/catalog?sort=new">Новинки</a>
+        <a href="#/catalog?sort=price_asc">Выгодные цены</a>
+        <a href="#/cart">Корзина</a>
+      </div>
+      <div>
+        <h5>Помощь</h5>
+        <a href="#/delivery">Доставка и оплата</a>
+        <a href="#/delivery#faq">Частые вопросы</a>
+        <a href="#/delivery#return">Возврат товара</a>
+        <a href="mailto:orders@example.ru" id="supportLink">Написать нам</a>
+      </div>
+      <div>
+        <h5>Документы</h5>
+        <a href="#/legal#offer">Публичная оферта</a>
+        <a href="#/legal#privacy">Политика конфиденциальности</a>
+        <a href="#/legal#terms">Условия возврата</a>
+        <a href="/admin" class="tiny">Вход для сотрудников</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ПОЛКА. Все цены указаны в рублях, включая НДС, если применимо.</span>
+      <span>Доставка: Ozon Доставка · Оплата картой · Чек по 54-ФЗ</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast-host" id="toasts" aria-live="polite"></div>
+
+<script src="/app.js"></script>
+</body>
+</html>

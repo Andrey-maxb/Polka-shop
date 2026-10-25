@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ПОЛКА — панель управления</title>
+<link rel="stylesheet" href="/store.css">
+<link rel="stylesheet" href="/admin.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%2314151a'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>П</text></svg>">
+</head>
+<body class="admin-body">
+
+<div id="loginScreen" class="login-screen">
+  <form class="login-card" id="loginForm">
+    <div class="logo" style="margin-bottom:18px"><span class="mark">П</span> ПОЛКА</div>
+    <h2>Панель управления</h2>
+    <p class="muted small" style="margin:8px 0 20px">Остатки, цены и заказы. Доступ только для сотрудников.</p>
+    <div class="field">
+      <label for="password">Пароль</label>
+      <input id="password" type="password" autocomplete="current-password" placeholder="••••••••" required>
+      <div class="err hidden" id="loginErr"></div>
+    </div>
+    <button class="btn btn-primary btn-block" type="submit">Войти</button>
+    <p class="tiny muted" style="margin-top:16px">Пароль задаётся переменной окружения <code>ADMIN_PASSWORD</code> на сервере.</p>
+  </form>
+</div>
+
+<div id="panel" class="hidden">
+  <header class="admin-header">
+    <div class="wrap" style="max-width:1280px">
+      <div class="logo"><span class="mark">П</span> ПОЛКА <span class="admin-tag">админка</span></div>
+      <nav class="admin-tabs" id="tabs">
+        <button data-tab="dashboard" class="active">Сводка</button>
+        <button data-tab="products">Товары и остатки</button>
+        <button data-tab="orders">Заказы</button>
+      </nav>
+      <div style="display:flex;gap:8px;align-items:center">
+        <a class="btn btn-ghost" href="/" target="_blank" style="padding:9px 16px;font-size:13.5px">Открыть магазин ↗</a>
+        <button class="btn btn-ghost" id="logout" style="padding:9px 16px;font-size:13.5px">Выйти</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap" style="max-width:1280px;padding:24px 20px 60px">
+    <!-- Сводка -->
+    <section id="tab-dashboard">
+      <div class="stat-grid" id="statGrid"></div>
+      <div class="panel" style="margin-top:18px">
+        <h3>Выручка по дням</h3>
+        <p class="muted small" style="margin-top:4px">Оплаченные заказы за последние 7 дней</p>
+        <div id="revenueChart" class="chart"></div>
+      </div>
+      <div class="panel" style="margin-top:16px">
+        <h3>Быстрые действия</h3>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+          <button class="btn btn-ghost" data-goto="products">Изменить остатки</button>
+          <button class="btn btn-ghost" data-goto="orders">Открыть заказы</button>
+          <a class="btn btn-ghost" href="mailto:" id="mailLink">Написать в поддержку</a>
+        </div>
+        <p class="legal" style="margin-top:14px">Настройки платежей и Ozon задаются переменными окружения на сервере — см. README.md, раздел «Подключение оплаты и Ozon».</p>
+      </div>
+    </section>
+
+    <!-- Товары -->
+    <section id="tab-products" class="hidden">
+      <div class="panel">
+        <div class="panel-head">
+          <div><h3>Товары и остатки</h3><p class="muted small" style="margin-top:4px">Меняйте остаток и цену прямо в таблице — изменения сохраняются по кнопке.</p></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <input class="admin-search" id="prodSearch" placeholder="Поиск по названию…">
+            <select class="select" id="catFilter"></select>
+            <button class="btn btn-ghost" id="bulkBtn">Остаток всем</button>
+          </div>
+        </div>
+        <div class="table-scroll">
+          <table class="admin-table" id="prodTable">
+            <thead><tr><th style="width:52px"></th><th>Товар</th><th>Категория</th><th style="width:130px">Цена, ₽</th><th style="width:120px">Остаток</th><th style="width:110px">Статус</th><th style="width:110px"></th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Заказы -->
+    <section id="tab-orders" class="hidden">
+      <div class="panel">
+        <div class="panel-head">
+          <div><h3>Заказы</h3><p class="muted small" style="margin-top:4px">Последние 200 заказов. Отмена возвращает товар на склад.</p></div>
+          <select class="select" id="orderFilter">
+            <option value="">Все статусы</option>
+            <option value="awaiting_payment">Ждёт оплаты</option>
+            <option value="paid">Оплачен</option>
+            <option value="packing">Собирается</option>
+            <option value="shipped">В пути</option>
+            <option value="delivered">Получен</option>
+            <option value="cancelled">Отменён</option>
+          </select>
+        </div>
+        <div id="ordersList"></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="toast-host" id="toasts"></div>
+<script src="/admin.js"></script>
+</body>
+</html>

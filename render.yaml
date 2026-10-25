@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: polka-shop
+    runtime: python
+    plan: free
+    buildCommand: ""
+    startCommand: "python3 app.py"
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.6"
+      - key: ADMIN_PASSWORD
+        sync: false          # задайте в панели Render
+      - key: SHOP_URL
+        sync: false
+      - key: PAYMENT_PROVIDER
+        value: demo
+      - key: OZON_MODE
+        value: demo
+      - key: DB_PATH
+        value: /opt/render/project/src/data/shop.db
