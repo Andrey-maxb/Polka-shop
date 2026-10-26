@@ -112,6 +112,11 @@ MOCK = r"""
     };
   }
 
+  function it_variant(raw, id) {
+    const found = (raw || []).find((x) => Number(x.id) === Number(id) && x.variant);
+    return found ? found.variant : null;
+  }
+
   function normalize(raw) {
     if (!Array.isArray(raw) || !raw.length) return { error: 'Корзина пуста' };
     const merged = {};
@@ -125,7 +130,8 @@ MOCK = r"""
       const p = state.products.find((x) => x.id === Number(id));
       if (!p) return { error: 'Товар не найден' };
       if (p.stock < qty) return { error: '«' + p.name + '» — в наличии только ' + p.stock + ' шт.' };
-      items.push({ id: p.id, name: p.name, price: p.price, qty, weight: p.weight, emoji: p.emoji, image: p.image, stock: p.stock });
+      items.push({ id: p.id, name: p.name, price: p.price, qty, weight: p.weight, emoji: p.emoji,
+                   image: p.image, stock: p.stock, variant: it_variant(raw, p.id) });
     }
     return { items };
   }

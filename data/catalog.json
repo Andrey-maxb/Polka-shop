@@ -109,7 +109,7 @@
    "category": "apparel",
    "subcategory": "apparel",
    "price": 1890,
-   "oldPrice": 2490,
+   "oldPrice": null,
    "emoji": "👕",
    "weight": 0.6,
    "description": "Пять базовых футболок из плотного хлопка 190 г/м² — основа гардероба на каждый день. Держат форму после стирок, не просвечивают и не растягиваются в вороте.",
@@ -121,7 +121,29 @@
    "stock": 100,
    "rating": 4.5,
    "reviews": 19,
-   "badge": null
+   "badge": null,
+   "variants": [
+    {
+     "label": "S",
+     "stock": 100
+    },
+    {
+     "label": "M",
+     "stock": 100
+    },
+    {
+     "label": "L",
+     "stock": 100
+    },
+    {
+     "label": "XL",
+     "stock": 100
+    },
+    {
+     "label": "XXL",
+     "stock": 100
+    }
+   ]
   },
   {
    "id": 2,
@@ -130,7 +152,7 @@
    "category": "apparel",
    "subcategory": "apparel",
    "price": 1290,
-   "oldPrice": 1590,
+   "oldPrice": null,
    "emoji": "👖",
    "weight": 0.3,
    "description": "Свободный крой оверсайз из мягкого хлопка пенье. Ткань приятна к телу, не линяет и почти не даёт усадку.",
@@ -142,7 +164,21 @@
    "stock": 100,
    "rating": 4.6,
    "reviews": 26,
-   "badge": null
+   "badge": null,
+   "variants": [
+    {
+     "label": "M",
+     "stock": 100
+    },
+    {
+     "label": "L",
+     "stock": 100
+    },
+    {
+     "label": "XL",
+     "stock": 100
+    }
+   ]
   },
   {
    "id": 3,
@@ -151,7 +187,7 @@
    "category": "tech",
    "subcategory": "audio",
    "price": 1190,
-   "oldPrice": 1590,
+   "oldPrice": null,
    "emoji": "🎧",
    "weight": 0.1,
    "description": "Лёгкие TWS-наушники с чистым звуком и стабильным Bluetooth 5.1. Кейс держит заряд до 40 часов, зарядка — через Type-C.",
@@ -163,7 +199,8 @@
    "stock": 100,
    "rating": 4.7,
    "reviews": 33,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 4,
@@ -172,7 +209,7 @@
    "category": "tech",
    "subcategory": "audio",
    "price": 990,
-   "oldPrice": 1290,
+   "oldPrice": null,
    "emoji": "🎧",
    "weight": 0.1,
    "description": "Классические TWS-наушники с сенсорным управлением и полупрозрачным корпусом кейса. Удобная посадка и быстрая синхронизация.",
@@ -184,7 +221,8 @@
    "stock": 100,
    "rating": 4.8,
    "reviews": 40,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 5,
@@ -193,7 +231,7 @@
    "category": "tech",
    "subcategory": "wearables",
    "price": 6490,
-   "oldPrice": 8900,
+   "oldPrice": null,
    "emoji": "⌚",
    "weight": 0.15,
    "description": "Часы в стиле классических смарт-часов: большой AMOLED-экран, звонки через динамик, десятки спортивных режимов и циферблатов.",
@@ -205,7 +243,8 @@
    "stock": 100,
    "rating": 4.9,
    "reviews": 47,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 6,
@@ -214,7 +253,7 @@
    "category": "tech",
    "subcategory": "wearables",
    "price": 2990,
-   "oldPrice": 3990,
+   "oldPrice": null,
    "emoji": "⌚",
    "weight": 0.1,
    "description": "Лёгкий браслет с трекингом активности, пульсометром и сном. Сменные ремешки и до 14 дней работы от одного заряда.",
@@ -226,7 +265,8 @@
    "stock": 100,
    "rating": 4.4,
    "reviews": 54,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 7,
@@ -235,7 +275,7 @@
    "category": "tech",
    "subcategory": "power",
    "price": 2190,
-   "oldPrice": 2790,
+   "oldPrice": null,
    "emoji": "🔋",
    "weight": 0.4,
    "description": "Компактный внешний аккумулятор с быстрой зарядкой 20 Вт. Помещается в карман и заряжает телефон дважды.",
@@ -247,7 +287,8 @@
    "stock": 100,
    "rating": 4.5,
    "reviews": 61,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 8,
@@ -256,7 +297,7 @@
    "category": "tech",
    "subcategory": "power",
    "price": 3490,
-   "oldPrice": 4290,
+   "oldPrice": null,
    "emoji": "🔋",
    "weight": 0.6,
    "description": "Ёмкий повербанк с цифровым дисплеем и поддержкой PD 22.5 Вт. Хватит на несколько дней поездки.",
@@ -268,7 +309,8 @@
    "stock": 100,
    "rating": 4.6,
    "reviews": 68,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 9,
@@ -277,7 +319,7 @@
    "category": "tech",
    "subcategory": "power",
    "price": 2690,
-   "oldPrice": 3490,
+   "oldPrice": null,
    "emoji": "🔌",
    "weight": 0.25,
    "description": "Один адаптер для ноутбука, телефона и наушников. Технология GaN делает блок компактным и холодным под нагрузкой.",
@@ -289,7 +331,8 @@
    "stock": 100,
    "rating": 4.7,
    "reviews": 75,
-   "badge": "Хит"
+   "badge": null,
+   "variants": null
   },
   {
    "id": 10,
@@ -298,7 +341,7 @@
    "category": "tech",
    "subcategory": "power",
    "price": 390,
-   "oldPrice": 590,
+   "oldPrice": null,
    "emoji": "🔗",
    "weight": 0.05,
    "description": "Прочный кабель с нейлоновой оплёткой для зарядки 100 Вт и передачи данных. Живёт заметно дольше обычных.",
@@ -310,7 +353,8 @@
    "stock": 100,
    "rating": 4.8,
    "reviews": 82,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 11,
@@ -319,7 +363,7 @@
    "category": "tech",
    "subcategory": "periphery",
    "price": 4990,
-   "oldPrice": 6490,
+   "oldPrice": null,
    "emoji": "⌨️",
    "weight": 1.0,
    "description": "Компактная TKL-клавиатура с поддержкой hot-swap: меняйте переключатели без паяльника. Подсветка и три режима подключения.",
@@ -331,7 +375,8 @@
    "stock": 100,
    "rating": 4.9,
    "reviews": 89,
-   "badge": "Новинка"
+   "badge": null,
+   "variants": null
   },
   {
    "id": 12,
@@ -340,7 +385,7 @@
    "category": "tech",
    "subcategory": "periphery",
    "price": 1590,
-   "oldPrice": 2190,
+   "oldPrice": null,
    "emoji": "🖱️",
    "weight": 0.15,
    "description": "Вертикальная мышь снижает нагрузку на запястье при долгой работе. Бесшумные кнопки и точный сенсор.",
@@ -352,7 +397,8 @@
    "stock": 100,
    "rating": 4.4,
    "reviews": 96,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 13,
@@ -361,7 +407,7 @@
    "category": "tech",
    "subcategory": "periphery",
    "price": 1890,
-   "oldPrice": 2590,
+   "oldPrice": null,
    "emoji": "📷",
    "weight": 0.2,
    "description": "Камера для созвонов и стримов: чёткая картинка Full HD и встроенный микрофон с шумоподавлением.",
@@ -373,7 +419,8 @@
    "stock": 100,
    "rating": 4.5,
    "reviews": 103,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 14,
@@ -382,7 +429,7 @@
    "category": "tech",
    "subcategory": "audio",
    "price": 3190,
-   "oldPrice": 3990,
+   "oldPrice": null,
    "emoji": "🎤",
    "weight": 0.2,
    "description": "Двойной комплект петличек с кейсом-зарядкой: записывайте интервью и видео вдвоём без проводов.",
@@ -394,7 +441,8 @@
    "stock": 100,
    "rating": 4.6,
    "reviews": 110,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 15,
@@ -403,7 +451,7 @@
    "category": "tech",
    "subcategory": "audio",
    "price": 1590,
-   "oldPrice": 2190,
+   "oldPrice": null,
    "emoji": "🔊",
    "weight": 0.5,
    "description": "Громкая компактная колонка с плотным басом и защитой от брызг. Хорошо звучит на улице и в душе.",
@@ -415,7 +463,8 @@
    "stock": 100,
    "rating": 4.7,
    "reviews": 117,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 16,
@@ -424,7 +473,7 @@
    "category": "tech",
    "subcategory": "audio",
    "price": 4590,
-   "oldPrice": 5990,
+   "oldPrice": null,
    "emoji": "🎧",
    "weight": 0.4,
    "description": "Накладные наушники с активным шумоподавлением и мягкими амбушюрами. Комфортны в дороге и в офисе.",
@@ -436,7 +485,8 @@
    "stock": 100,
    "rating": 4.8,
    "reviews": 124,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 17,
@@ -445,7 +495,7 @@
    "category": "home",
    "subcategory": "house",
    "price": 39900,
-   "oldPrice": 49900,
+   "oldPrice": null,
    "emoji": "🤖",
    "weight": 5.0,
    "description": "Робот-пылесос с навигацией и влажной уборкой: строит карту, обходит препятствия и убирает по расписанию из приложения.",
@@ -457,7 +507,8 @@
    "stock": 100,
    "rating": 4.9,
    "reviews": 131,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 18,
@@ -466,7 +517,7 @@
    "category": "auto",
    "subcategory": "auto-care",
    "price": 3290,
-   "oldPrice": 3990,
+   "oldPrice": null,
    "emoji": "🌬️",
    "weight": 1.2,
    "description": "Цифровой компрессор с автоблокировкой по заданному давлению. Накачивает колесо за пару минут.",
@@ -478,7 +529,8 @@
    "stock": 100,
    "rating": 4.4,
    "reviews": 138,
-   "badge": "Хит"
+   "badge": null,
+   "variants": null
   },
   {
    "id": 19,
@@ -487,7 +539,7 @@
    "category": "beauty",
    "subcategory": "health",
    "price": 3990,
-   "oldPrice": 4990,
+   "oldPrice": null,
    "emoji": "💪",
    "weight": 1.0,
    "description": "Перкуссионный массажёр с 6 насадками для глубокой проработки мышц после тренировок.",
@@ -499,7 +551,8 @@
    "stock": 100,
    "rating": 4.5,
    "reviews": 145,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 20,
@@ -508,7 +561,7 @@
    "category": "beauty",
    "subcategory": "health",
    "price": 2490,
-   "oldPrice": 3190,
+   "oldPrice": null,
    "emoji": "🧘",
    "weight": 0.4,
    "description": "Мягкий массажёр на шею и плечи с прогревом и импульсной стимуляцией мышц. 15 минут — и шея расслаблена.",
@@ -520,7 +573,8 @@
    "stock": 100,
    "rating": 4.6,
    "reviews": 152,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 21,
@@ -529,7 +583,7 @@
    "category": "home",
    "subcategory": "house",
    "price": 1390,
-   "oldPrice": 1790,
+   "oldPrice": null,
    "emoji": "👟",
    "weight": 0.8,
    "description": "Сушит и обеззараживает обувь за ночь: тёплый воздух убирает влагу, УФ-лампа — бактерии и запах.",
@@ -541,7 +595,8 @@
    "stock": 100,
    "rating": 4.7,
    "reviews": 159,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 22,
@@ -550,7 +605,7 @@
    "category": "auto",
    "subcategory": "auto-care",
    "price": 2590,
-   "oldPrice": 3290,
+   "oldPrice": null,
    "emoji": "🍃",
    "weight": 0.5,
    "description": "Компактный очиститель с HEPA-фильтром и ионизацией. Убирает запахи, пыль и аллергены в салоне.",
@@ -562,7 +617,8 @@
    "stock": 100,
    "rating": 4.8,
    "reviews": 166,
-   "badge": "Новинка"
+   "badge": null,
+   "variants": null
   },
   {
    "id": 23,
@@ -571,7 +627,7 @@
    "category": "home",
    "subcategory": "lighting",
    "price": 1990,
-   "oldPrice": 2590,
+   "oldPrice": null,
    "emoji": "🌌",
    "weight": 0.4,
    "description": "Проектор с галактикой и звёздами на стенах и потолке. Регулируемая яркость и поворотная голова.",
@@ -583,7 +639,8 @@
    "stock": 100,
    "rating": 4.9,
    "reviews": 173,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 24,
@@ -592,7 +649,7 @@
    "category": "home",
    "subcategory": "lighting",
    "price": 690,
-   "oldPrice": 990,
+   "oldPrice": null,
    "emoji": "💡",
    "weight": 0.2,
    "description": "Мягкий ночник с тёплым свечением и плавной регулировкой. Не бьёт в глаза и не мешает сну.",
@@ -604,7 +661,8 @@
    "stock": 100,
    "rating": 4.4,
    "reviews": 180,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 25,
@@ -613,7 +671,7 @@
    "category": "home",
    "subcategory": "lighting",
    "price": 590,
-   "oldPrice": 890,
+   "oldPrice": null,
    "emoji": "🌙",
    "weight": 0.2,
    "description": "Гирлянда из светящихся лун для декора комнаты, окна или фотосессии. Тёплое рассеянное свечение.",
@@ -625,7 +683,8 @@
    "stock": 100,
    "rating": 4.5,
    "reviews": 187,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 26,
@@ -634,7 +693,7 @@
    "category": "tech",
    "subcategory": "smart",
    "price": 890,
-   "oldPrice": 1190,
+   "oldPrice": null,
    "emoji": "💡",
    "weight": 0.1,
    "description": "Лампочка с 16 млн цветов и управлением со смартфона. Работает по расписанию и сценариям умного дома.",
@@ -646,7 +705,8 @@
    "stock": 100,
    "rating": 4.6,
    "reviews": 194,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 27,
@@ -655,7 +715,7 @@
    "category": "home",
    "subcategory": "lighting",
    "price": 1090,
-   "oldPrice": 1490,
+   "oldPrice": null,
    "emoji": "🎇",
    "weight": 0.4,
    "description": "Самоклеящаяся лента для подсветки стен, мебели и монитора. Пульт, режимы и плавные переходы.",
@@ -667,7 +727,8 @@
    "stock": 100,
    "rating": 4.7,
    "reviews": 201,
-   "badge": "Хит"
+   "badge": null,
+   "variants": null
   },
   {
    "id": 28,
@@ -676,7 +737,7 @@
    "category": "tech",
    "subcategory": "smart",
    "price": 4490,
-   "oldPrice": 5590,
+   "oldPrice": null,
    "emoji": "📹",
    "weight": 0.5,
    "description": "Поворотная камера с ночным видением и записью на карту памяти. Следите за домом из любой точки.",
@@ -688,7 +749,8 @@
    "stock": 100,
    "rating": 4.8,
    "reviews": 208,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 29,
@@ -697,7 +759,7 @@
    "category": "tech",
    "subcategory": "smart",
    "price": 890,
-   "oldPrice": 1190,
+   "oldPrice": null,
    "emoji": "💧",
    "weight": 0.1,
    "description": "Компактный датчик подаст сигнал на телефон при первой капле. Спасёт от затопления соседей.",
@@ -709,7 +771,8 @@
    "stock": 100,
    "rating": 4.9,
    "reviews": 215,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 30,
@@ -718,7 +781,7 @@
    "category": "tech",
    "subcategory": "smart",
    "price": 890,
-   "oldPrice": 1190,
+   "oldPrice": null,
    "emoji": "🔌",
    "weight": 0.1,
    "description": "Розетка с таймером и учётом потребления. Отключайте утюг или ёлку голосом.",
@@ -730,7 +793,8 @@
    "stock": 100,
    "rating": 4.4,
    "reviews": 222,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 31,
@@ -739,7 +803,7 @@
    "category": "home",
    "subcategory": "house",
    "price": 890,
-   "oldPrice": 1290,
+   "oldPrice": null,
    "emoji": "⚖️",
    "weight": 1.2,
    "description": "Точные весы с закалённым стеклом и крупным экраном. Шаг 100 г, память взвешиваний.",
@@ -751,7 +815,8 @@
    "stock": 100,
    "rating": 4.5,
    "reviews": 229,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 32,
@@ -760,7 +825,7 @@
    "category": "home",
    "subcategory": "kitchen-acc",
    "price": 590,
-   "oldPrice": 890,
+   "oldPrice": null,
    "emoji": "⚖️",
    "weight": 0.5,
    "description": "Плоские кухонные весы с обнулением тары и переключением единиц. Помещаются в ящик.",
@@ -772,7 +837,8 @@
    "stock": 100,
    "rating": 4.6,
    "reviews": 236,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 33,
@@ -781,7 +847,7 @@
    "category": "home",
    "subcategory": "kitchen-acc",
    "price": 590,
-   "oldPrice": 890,
+   "oldPrice": null,
    "emoji": "🌡️",
    "weight": 0.1,
    "description": "Мгновенный замер температуры мяса, воды и духовки. Больше никаких «на глаз».",
@@ -793,7 +859,8 @@
    "stock": 100,
    "rating": 4.7,
    "reviews": 243,
-   "badge": "Новинка"
+   "badge": null,
+   "variants": null
   },
   {
    "id": 34,
@@ -802,7 +869,7 @@
    "category": "home",
    "subcategory": "kitchen-acc",
    "price": 1190,
-   "oldPrice": 1590,
+   "oldPrice": null,
    "emoji": "🚿",
    "weight": 0.3,
    "description": "Силиконовая миска-раковина для мытья овощей, фруктов и посуды на даче и в походе.",
@@ -814,7 +881,8 @@
    "stock": 100,
    "rating": 4.8,
    "reviews": 250,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 35,
@@ -823,7 +891,7 @@
    "category": "home",
    "subcategory": "kitchen-acc",
    "price": 490,
-   "oldPrice": 690,
+   "oldPrice": null,
    "emoji": "☕",
    "weight": 0.4,
    "description": "Керамическая кружка 330 мл с ярким принтом, который не стирается в посудомойке.",
@@ -835,7 +903,8 @@
    "stock": 100,
    "rating": 4.9,
    "reviews": 17,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 36,
@@ -844,7 +913,7 @@
    "category": "home",
    "subcategory": "kitchen-acc",
    "price": 1890,
-   "oldPrice": 2490,
+   "oldPrice": null,
    "emoji": "🥤",
    "weight": 0.4,
    "description": "Термокружка показывает температуру напитка на крышке. Держит тепло до 6 часов.",
@@ -856,7 +925,8 @@
    "stock": 100,
    "rating": 4.4,
    "reviews": 24,
-   "badge": "Хит"
+   "badge": null,
+   "variants": null
   },
   {
    "id": 37,
@@ -865,7 +935,7 @@
    "category": "home",
    "subcategory": "kitchen-acc",
    "price": 1590,
-   "oldPrice": 2190,
+   "oldPrice": null,
    "emoji": "🍶",
    "weight": 0.5,
    "description": "Спортивная бутылка с трубочкой и вакуумной колбой. Холодная вода остаётся холодной весь день.",
@@ -877,7 +947,8 @@
    "stock": 100,
    "rating": 4.5,
    "reviews": 31,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 38,
@@ -886,7 +957,7 @@
    "category": "home",
    "subcategory": "kitchen-tech",
    "price": 7490,
-   "oldPrice": 8990,
+   "oldPrice": null,
    "emoji": "☕",
    "weight": 1.5,
    "description": "Жерновая кофемолка с регулировкой помола — от эспрессо до френч-пресса. Кофе не перегревается.",
@@ -898,7 +969,8 @@
    "stock": 100,
    "rating": 4.6,
    "reviews": 38,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 39,
@@ -907,7 +979,7 @@
    "category": "home",
    "subcategory": "kitchen-tech",
    "price": 13900,
-   "oldPrice": 17900,
+   "oldPrice": null,
    "emoji": "🍗",
    "weight": 6.0,
    "description": "Хрустящая корочка без литра масла: 5 литров, 8 программ и корзина с антипригарным покрытием.",
@@ -919,7 +991,8 @@
    "stock": 100,
    "rating": 4.7,
    "reviews": 45,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 40,
@@ -928,7 +1001,7 @@
    "category": "home",
    "subcategory": "kitchen-tech",
    "price": 10900,
-   "oldPrice": 13900,
+   "oldPrice": null,
    "emoji": "🍲",
    "weight": 5.0,
    "description": "Скороварка с 12 режимами: суп, каша, тушение и йогурт. Готовит под давлением в 2–3 раза быстрее.",
@@ -940,7 +1013,8 @@
    "stock": 100,
    "rating": 4.8,
    "reviews": 52,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 41,
@@ -949,7 +1023,7 @@
    "category": "home",
    "subcategory": "kitchen-tech",
    "price": 4490,
-   "oldPrice": 5590,
+   "oldPrice": null,
    "emoji": "☕",
    "weight": 2.0,
    "description": "Кофеварка на 6 чашек с блокировкой капли и подогревом. Просто, надёжно, без капсул.",
@@ -961,7 +1035,8 @@
    "stock": 100,
    "rating": 4.9,
    "reviews": 59,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 42,
@@ -970,7 +1045,7 @@
    "category": "home",
    "subcategory": "kitchen-tech",
    "price": 1490,
-   "oldPrice": 1990,
+   "oldPrice": null,
    "emoji": "🥤",
    "weight": 0.6,
    "description": "Персональный блендер для смузи: заряжается от USB-C и помещается в рюкзак.",
@@ -982,7 +1057,8 @@
    "stock": 100,
    "rating": 4.4,
    "reviews": 66,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 43,
@@ -991,7 +1067,7 @@
    "category": "home",
    "subcategory": "kitchen-tech",
    "price": 3290,
-   "oldPrice": 4290,
+   "oldPrice": null,
    "emoji": "🫖",
    "weight": 1.5,
    "description": "Чайник показывает реальную температуру и держит её до 2 часов. Пять режимов под чай, кофе и детские смеси.",
@@ -1003,7 +1079,8 @@
    "stock": 100,
    "rating": 4.5,
    "reviews": 73,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 44,
@@ -1012,7 +1089,7 @@
    "category": "home",
    "subcategory": "kitchen-tech",
    "price": 5490,
-   "oldPrice": 6990,
+   "oldPrice": null,
    "emoji": "🍳",
    "weight": 2.5,
    "description": "Одноконфорочная индукционная плита для дачи и маленькой кухни. Нагрев быстрее электрической.",
@@ -1024,7 +1101,8 @@
    "stock": 100,
    "rating": 4.6,
    "reviews": 80,
-   "badge": "Новинка"
+   "badge": null,
+   "variants": null
   },
   {
    "id": 45,
@@ -1033,7 +1111,7 @@
    "category": "home",
    "subcategory": "kitchen-acc",
    "price": 2490,
-   "oldPrice": 3190,
+   "oldPrice": null,
    "emoji": "🍱",
    "weight": 2.0,
    "description": "Контейнеры из закалённого стекла с герметичными крышками. В духовку, микроволновку и морозилку.",
@@ -1045,7 +1123,8 @@
    "stock": 100,
    "rating": 4.7,
    "reviews": 87,
-   "badge": "Хит"
+   "badge": null,
+   "variants": null
   },
   {
    "id": 46,
@@ -1054,7 +1133,7 @@
    "category": "home",
    "subcategory": "kitchen-tech",
    "price": 3290,
-   "oldPrice": 3990,
+   "oldPrice": null,
    "emoji": "🥫",
    "weight": 1.5,
    "description": "Вакуумная упаковка сохраняет продукты в 3–5 раз дольше. Идеально для заморозки и су-вида.",
@@ -1066,7 +1145,8 @@
    "stock": 100,
    "rating": 4.8,
    "reviews": 94,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 47,
@@ -1075,7 +1155,7 @@
    "category": "home",
    "subcategory": "kitchen-acc",
    "price": 1090,
-   "oldPrice": 1490,
+   "oldPrice": null,
    "emoji": "🥕",
    "weight": 0.8,
    "description": "Ручная овощерезка с 5 насадками: соломка, кубики, ломтики. Экономит время на готовке.",
@@ -1087,7 +1167,8 @@
    "stock": 100,
    "rating": 4.9,
    "reviews": 101,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 48,
@@ -1096,7 +1177,7 @@
    "category": "home",
    "subcategory": "house",
    "price": 1190,
-   "oldPrice": 1590,
+   "oldPrice": null,
    "emoji": "🚰",
    "weight": 0.4,
    "description": "Насадка с угольным фильтром очищает воду от хлора и ржавчины. Три режима напора.",
@@ -1108,7 +1189,8 @@
    "stock": 100,
    "rating": 4.4,
    "reviews": 108,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 49,
@@ -1117,7 +1199,7 @@
    "category": "home",
    "subcategory": "house",
    "price": 4490,
-   "oldPrice": 5590,
+   "oldPrice": null,
    "emoji": "♨️",
    "weight": 1.5,
    "description": "Моющий пар для плиты, швов, вытяжки и штор. Убирает жир без химии.",
@@ -1129,7 +1211,8 @@
    "stock": 100,
    "rating": 4.5,
    "reviews": 115,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 50,
@@ -1138,7 +1221,7 @@
    "category": "beauty",
    "subcategory": "health",
    "price": 1090,
-   "oldPrice": 1490,
+   "oldPrice": null,
    "emoji": "🧩",
    "weight": 1.5,
    "description": "Коврик с игольчатым аппликатором для спины и шеи. Снимает напряжение после рабочего дня.",
@@ -1150,7 +1233,8 @@
    "stock": 100,
    "rating": 4.6,
    "reviews": 122,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 51,
@@ -1159,7 +1243,7 @@
    "category": "beauty",
    "subcategory": "care",
    "price": 2190,
-   "oldPrice": 2990,
+   "oldPrice": null,
    "emoji": "🪥",
    "weight": 0.3,
    "description": "Звуковая щётка с таймером и 5 режимами очистки. В комплекте 3 насадки и дорожный кейс.",
@@ -1171,7 +1255,8 @@
    "stock": 100,
    "rating": 4.7,
    "reviews": 129,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 52,
@@ -1180,7 +1265,7 @@
    "category": "beauty",
    "subcategory": "care",
    "price": 3490,
-   "oldPrice": 4290,
+   "oldPrice": null,
    "emoji": "💦",
    "weight": 0.6,
    "description": "Ирригатор вычищает остатки еды там, где не достаёт щётка. Три режима и складной резервуар.",
@@ -1192,7 +1277,8 @@
    "stock": 100,
    "rating": 4.8,
    "reviews": 136,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 53,
@@ -1201,7 +1287,7 @@
    "category": "beauty",
    "subcategory": "care",
    "price": 3490,
-   "oldPrice": 4290,
+   "oldPrice": null,
    "emoji": "🪒",
    "weight": 0.4,
    "description": "Три плавающие головки повторяют контуры лица. Бреет сухо и с пеной, чистится под водой.",
@@ -1213,7 +1299,8 @@
    "stock": 100,
    "rating": 4.9,
    "reviews": 143,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 54,
@@ -1222,7 +1309,7 @@
    "category": "beauty",
    "subcategory": "care",
    "price": 1090,
-   "oldPrice": 1490,
+   "oldPrice": null,
    "emoji": "✂️",
    "weight": 0.2,
    "description": "Аккуратный триммер с защитой от выдёргивания волос. Промывается водой.",
@@ -1234,7 +1321,8 @@
    "stock": 100,
    "rating": 4.4,
    "reviews": 150,
-   "badge": "Хит"
+   "badge": null,
+   "variants": null
   },
   {
    "id": 55,
@@ -1243,7 +1331,7 @@
    "category": "beauty",
    "subcategory": "care",
    "price": 9900,
-   "oldPrice": 12900,
+   "oldPrice": null,
    "emoji": "💇",
    "weight": 1.2,
    "description": "Один прибор — фен, круглая щётка, локоны и сушка с эффектом Кубка. Меньше тепла — меньше вреда.",
@@ -1255,7 +1343,8 @@
    "stock": 100,
    "rating": 4.5,
    "reviews": 157,
-   "badge": "Новинка"
+   "badge": null,
+   "variants": null
   },
   {
    "id": 56,
@@ -1264,7 +1353,7 @@
    "category": "beauty",
    "subcategory": "care",
    "price": 1890,
-   "oldPrice": 2590,
+   "oldPrice": null,
    "emoji": "💇",
    "weight": 0.5,
    "description": "Керамические пластины равномерно прогреваются и скользят без натяжения. Быстрый нагрев за 30 секунд.",
@@ -1276,7 +1365,8 @@
    "stock": 100,
    "rating": 4.6,
    "reviews": 164,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 57,
@@ -1285,7 +1375,7 @@
    "category": "beauty",
    "subcategory": "care",
    "price": 2490,
-   "oldPrice": 3190,
+   "oldPrice": null,
    "emoji": "💅",
    "weight": 0.6,
    "description": "Аппарат для маникюра с набором фрез и регулировкой скорости. Всё для аккуратных ногтей дома.",
@@ -1297,7 +1387,8 @@
    "stock": 100,
    "rating": 4.7,
    "reviews": 171,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 58,
@@ -1306,7 +1397,7 @@
    "category": "beauty",
    "subcategory": "care",
    "price": 1590,
-   "oldPrice": 2190,
+   "oldPrice": null,
    "emoji": "💡",
    "weight": 0.8,
    "description": "UV/LED-лампа для сушки гель-лака. 48 Вт и режим безболезненной сушки для тонких ногтей.",
@@ -1318,7 +1409,8 @@
    "stock": 100,
    "rating": 4.8,
    "reviews": 178,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 59,
@@ -1327,7 +1419,7 @@
    "category": "beauty",
    "subcategory": "care",
    "price": 1590,
-   "oldPrice": 2090,
+   "oldPrice": null,
    "emoji": "💅",
    "weight": 0.3,
    "description": "Шесть базовых оттенков гель-лака с плотным пигментом. Носятся до трёх недель без сколов.",
@@ -1339,7 +1431,8 @@
    "stock": 100,
    "rating": 4.9,
    "reviews": 185,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 60,
@@ -1348,7 +1441,7 @@
    "category": "auto",
    "subcategory": "auto-gadgets",
    "price": 690,
-   "oldPrice": 990,
+   "oldPrice": null,
    "emoji": "🌸",
    "weight": 0.2,
    "description": "Ароматизатор с регулируемой интенсивностью. Три сменных аромата в комплекте.",
@@ -1360,7 +1453,8 @@
    "stock": 100,
    "rating": 4.4,
    "reviews": 192,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 61,
@@ -1369,7 +1463,7 @@
    "category": "beauty",
    "subcategory": "care",
    "price": 2990,
-   "oldPrice": 3990,
+   "oldPrice": null,
    "emoji": "💅",
    "weight": 0.7,
    "description": "Компактный аппарат для домашнего маникюра и педикюра. Держатель для фрез и LED-подсветка.",
@@ -1381,7 +1475,8 @@
    "stock": 100,
    "rating": 4.5,
    "reviews": 199,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 62,
@@ -1390,7 +1485,7 @@
    "category": "auto",
    "subcategory": "auto-gadgets",
    "price": 690,
-   "oldPrice": 990,
+   "oldPrice": null,
    "emoji": "📱",
    "weight": 0.2,
    "description": "Автозажим фиксирует телефон одной рукой при касании. Держится в дефлекторе крепко.",
@@ -1402,7 +1497,8 @@
    "stock": 100,
    "rating": 4.6,
    "reviews": 206,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 63,
@@ -1411,7 +1507,7 @@
    "category": "auto",
    "subcategory": "auto-gadgets",
    "price": 4490,
-   "oldPrice": 5590,
+   "oldPrice": null,
    "emoji": "💆",
    "weight": 1.2,
    "description": "Массажная накидка с компрессией и прогревом для водительского сиденья. Дорога проходит легче.",
@@ -1423,7 +1519,8 @@
    "stock": 100,
    "rating": 4.7,
    "reviews": 213,
-   "badge": "Хит"
+   "badge": null,
+   "variants": null
   },
   {
    "id": 64,
@@ -1432,7 +1529,7 @@
    "category": "auto",
    "subcategory": "auto-gadgets",
    "price": 7490,
-   "oldPrice": 8990,
+   "oldPrice": null,
    "emoji": "🎥",
    "weight": 0.6,
    "description": "Двойная съёмка 2K + Full HD, ночная запись и парковочный режим. Карта 32 ГБ в комплекте.",
@@ -1444,7 +1541,8 @@
    "stock": 100,
    "rating": 4.8,
    "reviews": 220,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 65,
@@ -1453,7 +1551,7 @@
    "category": "auto",
    "subcategory": "auto-gadgets",
    "price": 2490,
-   "oldPrice": 3190,
+   "oldPrice": null,
    "emoji": "🔌",
    "weight": 0.3,
    "description": "Держатель с беспроводной зарядкой 15 Вт и автозажимом. Телефон заряжается по пути на работу.",
@@ -1465,7 +1563,8 @@
    "stock": 100,
    "rating": 4.9,
    "reviews": 227,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 66,
@@ -1474,7 +1573,7 @@
    "category": "auto",
    "subcategory": "auto-care",
    "price": 1890,
-   "oldPrice": 2490,
+   "oldPrice": null,
    "emoji": "🔥",
    "weight": 0.5,
    "description": "Быстро снимает лёд и запотевание с лобового стекла и зеркал. Питается от прикуривателя.",
@@ -1486,7 +1585,8 @@
    "stock": 100,
    "rating": 4.4,
    "reviews": 234,
-   "badge": "Новинка"
+   "badge": null,
+   "variants": null
   },
   {
    "id": 67,
@@ -1495,7 +1595,7 @@
    "category": "home",
    "subcategory": "pets",
    "price": 1190,
-   "oldPrice": 1590,
+   "oldPrice": null,
    "emoji": "🐠",
    "weight": 0.6,
    "description": "Внутренний фильтр с аэрацией для аквариумов до 100 л. Регулировка потока и тихая работа.",
@@ -1507,7 +1607,8 @@
    "stock": 100,
    "rating": 4.5,
    "reviews": 241,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 68,
@@ -1516,7 +1617,7 @@
    "category": "auto",
    "subcategory": "auto-care",
    "price": 2990,
-   "oldPrice": 3790,
+   "oldPrice": null,
    "emoji": "💦",
    "weight": 0.5,
    "description": "Пенная насадка и турбо-форсунка для мойки Karcher-совместимых пистолетов.",
@@ -1528,7 +1629,8 @@
    "stock": 100,
    "rating": 4.6,
    "reviews": 248,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 69,
@@ -1537,7 +1639,7 @@
    "category": "auto",
    "subcategory": "auto-care",
    "price": 3490,
-   "oldPrice": 4290,
+   "oldPrice": null,
    "emoji": "🧹",
    "weight": 0.8,
    "description": "Мощный аккумуляторный пылесос для салона. Насадки для щелей и текстиля в комплекте.",
@@ -1549,7 +1651,8 @@
    "stock": 100,
    "rating": 4.7,
    "reviews": 15,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 70,
@@ -1558,7 +1661,7 @@
    "category": "tools",
    "subcategory": "hand-tools",
    "price": 3290,
-   "oldPrice": 3990,
+   "oldPrice": null,
    "emoji": "🧰",
    "weight": 3.5,
    "description": "Набор ключей, бит и головок в прочном кейсе. Закрывает почти все бытовые задачи.",
@@ -1570,7 +1673,8 @@
    "stock": 100,
    "rating": 4.8,
    "reviews": 22,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 71,
@@ -1579,7 +1683,7 @@
    "category": "tools",
    "subcategory": "power-tools",
    "price": 6990,
-   "oldPrice": 8490,
+   "oldPrice": null,
    "emoji": "🔧",
    "weight": 2.0,
    "description": "Компактный шуруповёрт с двумя аккумуляторами и зарядкой. Сверлит бетон и дерево.",
@@ -1591,7 +1695,8 @@
    "stock": 100,
    "rating": 4.9,
    "reviews": 29,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 72,
@@ -1600,7 +1705,7 @@
    "category": "tools",
    "subcategory": "hand-tools",
    "price": 890,
-   "oldPrice": 1190,
+   "oldPrice": null,
    "emoji": "🪛",
    "weight": 0.3,
    "description": "Закалённые биты с магнитным держателем. Не слизываются на первом же саморезе.",
@@ -1612,7 +1717,8 @@
    "stock": 100,
    "rating": 4.4,
    "reviews": 36,
-   "badge": "Хит"
+   "badge": null,
+   "variants": null
   },
   {
    "id": 73,
@@ -1621,7 +1727,7 @@
    "category": "tools",
    "subcategory": "measure",
    "price": 3490,
-   "oldPrice": 4290,
+   "oldPrice": null,
    "emoji": "📐",
    "weight": 0.6,
    "description": "Проецирует горизонталь и вертикаль с точностью ±1 мм/м. Держатель и штатив в комплекте.",
@@ -1633,7 +1739,8 @@
    "stock": 100,
    "rating": 4.5,
    "reviews": 43,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 74,
@@ -1642,7 +1749,7 @@
    "category": "tools",
    "subcategory": "measure",
    "price": 5490,
-   "oldPrice": 6790,
+   "oldPrice": null,
    "emoji": "📏",
    "weight": 0.3,
    "description": "Замеряет расстояние, площадь и объём одним нажатием. Ведёт историю измерений.",
@@ -1654,7 +1761,8 @@
    "stock": 100,
    "rating": 4.6,
    "reviews": 50,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 75,
@@ -1663,7 +1771,7 @@
    "category": "tools",
    "subcategory": "hand-tools",
    "price": 1890,
-   "oldPrice": 2490,
+   "oldPrice": null,
    "emoji": "🔥",
    "weight": 0.2,
    "description": "Греется за 8 секунд от повербанка. Идеален для проводов и плат в поле.",
@@ -1675,7 +1783,8 @@
    "stock": 100,
    "rating": 4.7,
    "reviews": 57,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 76,
@@ -1684,7 +1793,7 @@
    "category": "tools",
    "subcategory": "hand-tools",
    "price": 1090,
-   "oldPrice": 1490,
+   "oldPrice": null,
    "emoji": "🖇️",
    "weight": 0.4,
    "description": "Компактный пистолет для мелких починок и рукоделия. Стержни уже в комплекте.",
@@ -1696,7 +1805,8 @@
    "stock": 100,
    "rating": 4.8,
    "reviews": 64,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 77,
@@ -1705,7 +1815,7 @@
    "category": "tools",
    "subcategory": "hand-tools",
    "price": 1590,
-   "oldPrice": 2190,
+   "oldPrice": null,
    "emoji": "🛠️",
    "weight": 0.3,
    "description": "Четырнадцать инструментов в одном корпусе: ножи, отвёртки, пила, плоскогубцы.",
@@ -1717,7 +1827,8 @@
    "stock": 100,
    "rating": 4.9,
    "reviews": 71,
-   "badge": "Новинка"
+   "badge": null,
+   "variants": null
   },
   {
    "id": 78,
@@ -1726,7 +1837,7 @@
    "category": "tools",
    "subcategory": "hand-tools",
    "price": 1190,
-   "oldPrice": 1590,
+   "oldPrice": null,
    "emoji": "🪛",
    "weight": 0.3,
    "description": "Отвёртки для техники: телефоны, часы, ноутбуки. Все популярные биты в одном кейсе.",
@@ -1738,7 +1849,8 @@
    "stock": 100,
    "rating": 4.4,
    "reviews": 78,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 79,
@@ -1747,7 +1859,7 @@
    "category": "tools",
    "subcategory": "power-tools",
    "price": 3290,
-   "oldPrice": 3990,
+   "oldPrice": null,
    "emoji": "🎨",
    "weight": 0.8,
    "description": "Краскопульт для мебели, стен и авто. Равномерный факел при малом расходе краски.",
@@ -1759,7 +1871,8 @@
    "stock": 100,
    "rating": 4.5,
    "reviews": 85,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 80,
@@ -1768,7 +1881,7 @@
    "category": "tools",
    "subcategory": "power-tools",
    "price": 1890,
-   "oldPrice": 2490,
+   "oldPrice": null,
    "emoji": "🖇️",
    "weight": 0.6,
    "description": "Мощный пистолет для стройки и отделки: схватывается за 20 секунд даже на шершавых поверхностях.",
@@ -1780,7 +1893,8 @@
    "stock": 100,
    "rating": 4.6,
    "reviews": 92,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 81,
@@ -1789,7 +1903,7 @@
    "category": "hobby",
    "subcategory": "hobby",
    "price": 5490,
-   "oldPrice": 6900,
+   "oldPrice": null,
    "emoji": "🚙",
    "weight": 1.5,
    "description": "Быстрый краулер с полным приводом и аккумулятором. Не боится песка и мелких препятствий.",
@@ -1801,7 +1915,8 @@
    "stock": 100,
    "rating": 4.7,
    "reviews": 99,
-   "badge": "Хит"
+   "badge": null,
+   "variants": null
   },
   {
    "id": 82,
@@ -1810,7 +1925,7 @@
    "category": "hobby",
    "subcategory": "hobby",
    "price": 11900,
-   "oldPrice": 13900,
+   "oldPrice": null,
    "emoji": "🚁",
    "weight": 1.2,
    "description": "Квадрокоптер с камерой, стабилизацией и двумя батареями. Учится на «новичке» и летит по маршруту.",
@@ -1822,7 +1937,8 @@
    "stock": 100,
    "rating": 4.8,
    "reviews": 106,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 83,
@@ -1831,7 +1947,7 @@
    "category": "sport",
    "subcategory": "tourism",
    "price": 1290,
-   "oldPrice": 1725,
+   "oldPrice": null,
    "emoji": "🔪",
    "weight": 0.2,
    "description": "Складной нож с фиксатором и сталью, которая держит заточку. Удобен в походе и на пикнике.",
@@ -1843,7 +1959,8 @@
    "stock": 100,
    "rating": 4.9,
    "reviews": 113,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 84,
@@ -1852,7 +1969,7 @@
    "category": "sport",
    "subcategory": "tourism",
    "price": 4490,
-   "oldPrice": 5590,
+   "oldPrice": null,
    "emoji": "🔭",
    "weight": 0.8,
    "description": "Яркая и контрастная картинка даже по сумеркам. Подходит для охоты, бердвотчинга и спорта.",
@@ -1864,7 +1981,8 @@
    "stock": 100,
    "rating": 4.4,
    "reviews": 120,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 85,
@@ -1873,7 +1991,7 @@
    "category": "sport",
    "subcategory": "tourism",
    "price": 990,
-   "oldPrice": 1390,
+   "oldPrice": null,
    "emoji": "🔦",
    "weight": 0.2,
    "description": "Лёгкий налобник с наклоном и красным светом. Не слепит и не спадает на бегу.",
@@ -1885,7 +2003,8 @@
    "stock": 100,
    "rating": 4.5,
    "reviews": 127,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 86,
@@ -1894,7 +2013,7 @@
    "category": "sport",
    "subcategory": "tourism",
    "price": 1890,
-   "oldPrice": 2490,
+   "oldPrice": null,
    "emoji": "🔦",
    "weight": 0.5,
    "description": "Дальнобойный фонарь на 1000 люмен с зумом и повербанком в комплекте.",
@@ -1906,7 +2025,8 @@
    "stock": 100,
    "rating": 4.6,
    "reviews": 134,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 87,
@@ -1915,7 +2035,7 @@
    "category": "sport",
    "subcategory": "tourism",
    "price": 3290,
-   "oldPrice": 3990,
+   "oldPrice": null,
    "emoji": "🎒",
    "weight": 1.5,
    "description": "Держит холод до 12 часов на пляже и в дороге. Мягкий корпус, удобные лямки и карманы.",
@@ -1927,7 +2047,8 @@
    "stock": 100,
    "rating": 4.7,
    "reviews": 141,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 88,
@@ -1936,7 +2057,7 @@
    "category": "sport",
    "subcategory": "tourism",
    "price": 8900,
-   "oldPrice": 11040,
+   "oldPrice": null,
    "emoji": "⛺",
    "weight": 4.0,
    "description": "Раскладывается за минуту без инструкции. Двойной тент и москитка для комфортной ночёвки.",
@@ -1948,7 +2069,8 @@
    "stock": 100,
    "rating": 4.8,
    "reviews": 148,
-   "badge": "Новинка"
+   "badge": null,
+   "variants": null
   },
   {
    "id": 89,
@@ -1957,7 +2079,7 @@
    "category": "sport",
    "subcategory": "tourism",
    "price": 3490,
-   "oldPrice": 4140,
+   "oldPrice": null,
    "emoji": "🛏️",
    "weight": 2.0,
    "description": "Тёплый спальник-одеяло с капюшоном. Комфорт до −5 °C, упаковывается в компактный чехол.",
@@ -1969,7 +2091,8 @@
    "stock": 100,
    "rating": 4.9,
    "reviews": 155,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 90,
@@ -1978,7 +2101,7 @@
    "category": "sport",
    "subcategory": "tourism",
    "price": 2490,
-   "oldPrice": 3190,
+   "oldPrice": null,
    "emoji": "🪑",
    "weight": 3.0,
    "description": "Кресло с высокой спинкой и подлокотниками. Сталь, выдерживает до 120 кг.",
@@ -1990,7 +2113,8 @@
    "stock": 100,
    "rating": 4.4,
    "reviews": 162,
-   "badge": "Хит"
+   "badge": null,
+   "variants": null
   },
   {
    "id": 91,
@@ -1999,7 +2123,7 @@
    "category": "sport",
    "subcategory": "tourism",
    "price": 1890,
-   "oldPrice": 2490,
+   "oldPrice": null,
    "emoji": "🔥",
    "weight": 0.6,
    "description": "Компактная горелка с пьезоподжигом для похода и дачи. Вскипятит чайник за 3 минуты.",
@@ -2011,7 +2135,8 @@
    "stock": 100,
    "rating": 4.5,
    "reviews": 169,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 92,
@@ -2020,7 +2145,7 @@
    "category": "sport",
    "subcategory": "tourism",
    "price": 4990,
-   "oldPrice": 6210,
+   "oldPrice": null,
    "emoji": "☀️",
    "weight": 0.8,
    "description": "Складная панель заряжает телефон и повербанк из солнца. Петли и карабины для рюкзака.",
@@ -2032,7 +2157,8 @@
    "stock": 100,
    "rating": 4.6,
    "reviews": 176,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 93,
@@ -2041,7 +2167,7 @@
    "category": "hobby",
    "subcategory": "hobby",
    "price": 1490,
-   "oldPrice": 2070,
+   "oldPrice": null,
    "emoji": "📷",
    "weight": 0.1,
    "description": "Четыре фильтра для ровной экспозиции и «шевеления» воды в кадре. Магнитное крепление.",
@@ -2053,7 +2179,8 @@
    "stock": 100,
    "rating": 4.7,
    "reviews": 183,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 94,
@@ -2062,7 +2189,7 @@
    "category": "sport",
    "subcategory": "fitness",
    "price": 5490,
-   "oldPrice": 6210,
+   "oldPrice": null,
    "emoji": "🏋️",
    "weight": 20.0,
    "description": "Пара разборных гантелей с обрезиненными дисками и замками. Заменяет целую стойку.",
@@ -2074,7 +2201,8 @@
    "stock": 100,
    "rating": 4.8,
    "reviews": 190,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 95,
@@ -2083,7 +2211,7 @@
    "category": "sport",
    "subcategory": "fitness",
    "price": 1490,
-   "oldPrice": 1725,
+   "oldPrice": null,
    "emoji": "🧘",
    "weight": 1.0,
    "description": "Коврик с хорошим сцеплением даже для вспотевших ладоней. 6 мм — комфортно для коленей.",
@@ -2095,7 +2223,8 @@
    "stock": 100,
    "rating": 4.9,
    "reviews": 197,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 96,
@@ -2104,7 +2233,7 @@
    "category": "sport",
    "subcategory": "fitness",
    "price": 2290,
-   "oldPrice": 2760,
+   "oldPrice": null,
    "emoji": "🤸",
    "weight": 5.0,
    "description": "Турник без сверления: распирается в проёме и выдерживает до 200 кг.",
@@ -2116,7 +2245,8 @@
    "stock": 100,
    "rating": 4.4,
    "reviews": 204,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 97,
@@ -2125,7 +2255,7 @@
    "category": "sport",
    "subcategory": "fitness",
    "price": 790,
-   "oldPrice": 990,
+   "oldPrice": null,
    "emoji": "🪢",
    "weight": 0.4,
    "description": "Быстрая скакалка с металлическим тросом и подшипниками для кроссфита.",
@@ -2137,7 +2267,8 @@
    "stock": 100,
    "rating": 4.5,
    "reviews": 211,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 98,
@@ -2146,7 +2277,7 @@
    "category": "sport",
    "subcategory": "fitness",
    "price": 990,
-   "oldPrice": 1290,
+   "oldPrice": null,
    "emoji": "🧴",
    "weight": 0.5,
    "description": "Ролик для миофасциального массажа бёдер и спины. Плотный EVA держит форму.",
@@ -2158,7 +2289,8 @@
    "stock": 100,
    "rating": 4.6,
    "reviews": 218,
-   "badge": null
+   "badge": null,
+   "variants": null
   },
   {
    "id": 99,
@@ -2167,7 +2299,7 @@
    "category": "sport",
    "subcategory": "fitness",
    "price": 590,
-   "oldPrice": 890,
+   "oldPrice": null,
    "emoji": "💪",
    "weight": 0.2,
    "description": "Пять уровней сопротивления от лёгкого до сильного. Помещаются в карман.",
@@ -2179,7 +2311,8 @@
    "stock": 100,
    "rating": 4.7,
    "reviews": 225,
-   "badge": "Хит"
+   "badge": null,
+   "variants": null
   },
   {
    "id": 100,
@@ -2188,7 +2321,7 @@
    "category": "beauty",
    "subcategory": "health",
    "price": 1890,
-   "oldPrice": 2490,
+   "oldPrice": null,
    "emoji": "⚖️",
    "weight": 1.5,
    "description": "Показывают вес, процент жира, мышц и воды, синхронизируются с приложением.",
@@ -2200,7 +2333,8 @@
    "stock": 100,
    "rating": 4.8,
    "reviews": 232,
-   "badge": null
+   "badge": null,
+   "variants": null
   }
  ]
 }

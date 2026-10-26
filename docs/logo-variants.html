@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ПОЛКА — варианты логотипа</title>
+<style>
+  :root { --ink:#14151a; --muted:#71767f; --line:#e6e4df; --accent:#3a34d6; --bg:#f6f5f2; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+    font:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif; }
+  .wrap { max-width:1000px; margin:0 auto; padding:44px 22px 70px; }
+  h1 { font-size:clamp(24px,3.4vw,34px); letter-spacing:-.02em; margin:0 0 8px; }
+  .lead { color:var(--muted); margin:0 0 34px; font-size:15px; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:20px; padding:26px; margin-bottom:22px; }
+  .card-head { display:flex; align-items:baseline; gap:12px; margin-bottom:20px; flex-wrap:wrap; }
+  .num { width:30px; height:30px; border-radius:50%; background:var(--ink); color:#fff; display:grid;
+    place-items:center; font-size:14px; font-weight:650; flex:0 0 auto; }
+  .card-head b { font-size:17px; }
+  .card-head span { color:var(--muted); font-size:13.5px; }
+  .row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .box { border:1px solid var(--line); border-radius:14px; padding:30px; display:grid; place-items:center; min-height:170px; }
+  .box.dark { background:var(--ink); border-color:var(--ink); }
+  .box.soft { background:linear-gradient(150deg,#f1efe9,#e8e5f7); border:0; }
+  .caption { font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; margin-top:10px; text-align:center; }
+  .mock { background:#fff; border:1px solid var(--line); border-radius:14px; padding:14px 18px; display:flex;
+    align-items:center; gap:24px; flex-wrap:wrap; }
+  .mock nav { display:flex; gap:16px; font-size:13.5px; color:var(--muted); }
+  .mock .btn { margin-left:auto; background:var(--accent); color:#fff; border-radius:999px; padding:9px 18px; font-size:13px; font-weight:600; }
+  .note { font-size:13px; color:var(--muted); margin-top:14px; line-height:1.55; }
+  .choose { background:#14151a; color:#fff; border-radius:16px; padding:22px 26px; margin-top:8px; }
+  .choose b { display:block; margin-bottom:6px; }
+  .choose p { margin:0; color:#c9c8dd; font-size:14px; }
+  svg { display:block; }
+  @media (max-width:720px){ .row { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Логотип «ПОЛКА» — три варианта</h1>
+  <p class="lead">Выберите цифру, я внедрю её на сайт, в шапку, подвал, favicon и в админку.</p>
+
+  <!-- ВАРИАНТ 1 -->
+  <div class="card">
+    <div class="card-head"><div class="num">1</div><b>Типографический, с полкой</b><span>спокойный, «взрослый», лучший для интернет-магазина</span></div>
+    <div class="row">
+      <div>
+        <div class="box">
+          <svg width="230" height="76" viewBox="0 0 230 76">
+            <text x="0" y="44" font-family="Arial,Helvetica,sans-serif" font-size="38" font-weight="800" letter-spacing="-1.5" fill="#14151a">ПОЛКА</text>
+            <rect x="1" y="56" width="228" height="4" rx="2" fill="#3a34d6"/>
+            <circle cx="196" cy="58" r="7" fill="#3a34d6"/>
+            <rect x="189" y="50" width="6" height="14" rx="2" fill="#f6f5f2"/>
+          </svg>
+        </div>
+        <div class="caption">Светлая версия</div>
+      </div>
+      <div>
+        <div class="box dark">
+          <svg width="230" height="76" viewBox="0 0 230 76">
+            <text x="0" y="44" font-family="Arial,Helvetica,sans-serif" font-size="38" font-weight="800" letter-spacing="-1.5" fill="#ffffff">ПОЛКА</text>
+            <rect x="1" y="56" width="228" height="4" rx="2" fill="#8f8bff"/>
+            <circle cx="196" cy="58" r="7" fill="#8f8bff"/>
+            <rect x="189" y="50" width="6" height="14" rx="2" fill="#14151a"/>
+          </svg>
+        </div>
+        <div class="caption">Тёмная версия</div>
+      </div>
+    </div>
+    <div class="mock" style="margin-top:16px">
+      <svg width="120" height="40" viewBox="0 0 230 76"><text x="0" y="44" font-family="Arial,Helvetica,sans-serif" font-size="34" font-weight="800" letter-spacing="-1.5" fill="#14151a">ПОЛКА</text><rect x="1" y="54" width="228" height="4" rx="2" fill="#3a34d6"/></svg>
+      <nav><span>Каталог</span><span>Доставка</span><span>О магазине</span></nav>
+      <span class="btn">Корзина</span>
+    </div>
+    <p class="note">Работает в любом размере, читается на упаковке и в соцсетях. Линия-полка — единственный графический элемент, поэтому запоминается.</p>
+  </div>
+
+  <!-- ВАРИАНТ 2 -->
+  <div class="card">
+    <div class="card-head"><div class="num">2</div><b>Знак «П» на плашке</b><span>близко к текущему, компактно для аватарки и favicon</span></div>
+    <div class="row">
+      <div>
+        <div class="box">
+          <svg width="230" height="90" viewBox="0 0 230 90">
+            <rect x="2" y="12" width="64" height="64" rx="18" fill="#3a34d6"/>
+            <path d="M20 62V28h13c9 0 15 5 15 13s-6 13-15 13h-5v8z" fill="#fff"/>
+            <text x="82" y="58" font-family="Arial,Helvetica,sans-serif" font-size="30" font-weight="800" letter-spacing="-1" fill="#14151a">ПОЛКА</text>
+          </svg>
+        </div>
+        <div class="caption">Светлая версия</div>
+      </div>
+      <div>
+        <div class="box dark">
+          <svg width="230" height="90" viewBox="0 0 230 90">
+            <rect x="2" y="12" width="64" height="64" rx="18" fill="#ffffff"/>
+            <path d="M20 62V28h13c9 0 15 5 15 13s-6 13-15 13h-5v8z" fill="#3a34d6"/>
+            <text x="82" y="58" font-family="Arial,Helvetica,sans-serif" font-size="30" font-weight="800" letter-spacing="-1" fill="#fff">ПОЛКА</text>
+          </svg>
+        </div>
+        <div class="caption">Тёмная версия</div>
+      </div>
+    </div>
+    <p class="note">Узнаваемый значок для аватарки в соцсетях и иконки сайта. Минус — выглядит типично для 2020-х: скруглённый квадрат есть у половины сервисов.</p>
+  </div>
+
+  <!-- ВАРИАНТ 3 -->
+  <div class="card">
+    <div class="card-head"><div class="num">3</div><b>Монограмма из полок</b><span>смелее, ближе к маркетплейсам, хорошо для соцсетей</span></div>
+    <div class="row">
+      <div>
+        <div class="box">
+          <svg width="230" height="90" viewBox="0 0 230 90">
+            <rect x="2" y="12" width="64" height="64" rx="10" fill="#14151a"/>
+            <rect x="16" y="26" width="36" height="6" rx="3" fill="#8f8bff"/>
+            <rect x="16" y="41" width="26" height="6" rx="3" fill="#fff"/>
+            <rect x="16" y="56" width="36" height="6" rx="3" fill="#8f8bff"/>
+            <text x="82" y="58" font-family="Arial,Helvetica,sans-serif" font-size="30" font-weight="800" letter-spacing="-1" fill="#14151a">ПОЛКА</text>
+          </svg>
+        </div>
+        <div class="caption">Светлая версия</div>
+      </div>
+      <div>
+        <div class="box soft">
+          <svg width="230" height="90" viewBox="0 0 230 90">
+            <rect x="2" y="12" width="64" height="64" rx="10" fill="#3a34d6"/>
+            <rect x="16" y="26" width="36" height="6" rx="3" fill="#ffffff" opacity=".55"/>
+            <rect x="16" y="41" width="26" height="6" rx="3" fill="#ffffff"/>
+            <rect x="16" y="56" width="36" height="6" rx="3" fill="#ffffff" opacity=".55"/>
+            <text x="82" y="58" font-family="Arial,Helvetica,sans-serif" font-size="30" font-weight="800" letter-spacing="-1" fill="#14151a">ПОЛКА</text>
+          </svg>
+        </div>
+        <div class="caption">На цветной плашке</div>
+      </div>
+    </div>
+    <p class="note">Знак буквально изображает полки с товарами — сразу понятно, чем вы занимаетесь. Хорошо смотрится мелко: в иконке приложения и в профиле соцсетей.</p>
+  </div>
+
+  <div class="choose">
+    <b>Что выбрать?</b>
+    <p>Моя рекомендация — <b>вариант 1</b>: он не выглядит как заготовка и одинаково хорош на визитке, в шапке сайта и на коробке. Если планируете активность в соцсетях и иконку приложения — берите 3.</p>
+  </div>
+</div>
+</body>
+</html>

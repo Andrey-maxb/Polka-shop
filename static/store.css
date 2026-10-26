@@ -335,6 +335,18 @@ ul { margin: 0; padding: 0; }
 .qty span { min-width: 34px; text-align: center; font-weight: 600; font-size: 15px; }
 .buy-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
 .buy-row .btn { flex: 1; min-width: 190px; }
+.variant-block { margin-bottom: 16px; }
+.variant-label { font-size: 13.5px; color: var(--ink-2); margin-bottom: 9px; }
+.variant-label b { color: var(--ink); }
+.variant-list { display: flex; gap: 8px; flex-wrap: wrap; }
+.variant-btn {
+  min-width: 52px; padding: 10px 14px; border: 1px solid var(--line-2); background: var(--surface);
+  border-radius: 10px; font-size: 14px; font-weight: 550; transition: .15s;
+}
+.variant-btn:hover:not(:disabled) { border-color: var(--ink); }
+.variant-btn.active { background: var(--ink); border-color: var(--ink); color: #fff; }
+.variant-btn.disabled, .variant-btn:disabled { opacity: .35; cursor: not-allowed; text-decoration: line-through; }
+
 .deliv-note { display: flex; gap: 12px; align-items: flex-start; margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--line); font-size: 13.5px; color: var(--muted); }
 .deliv-note .e { font-size: 18px; }
 .desc-block { margin-top: 40px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px; }

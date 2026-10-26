@@ -55,7 +55,8 @@ def init_db():
                 id INTEGER PRIMARY KEY, slug TEXT UNIQUE, name TEXT, category TEXT,
                 subcategory TEXT, price INTEGER, old_price INTEGER, emoji TEXT,
                 weight REAL, description TEXT, features TEXT, stock INTEGER,
-                rating REAL, reviews INTEGER, badge TEXT, image TEXT, active INTEGER DEFAULT 1
+                rating REAL, reviews INTEGER, badge TEXT, image TEXT,
+                variants TEXT, active INTEGER DEFAULT 1
             );
             CREATE TABLE IF NOT EXISTS orders (
                 id INTEGER PRIMARY KEY AUTOINCREMENT, number TEXT UNIQUE,
@@ -76,18 +77,26 @@ def init_db():
         cols = [c[1] for c in conn.execute("PRAGMA table_info(products)")]
         if "image" not in cols:
             conn.execute("ALTER TABLE products ADD COLUMN image TEXT")
+        if "variants" not in cols:
+            conn.execute("ALTER TABLE products ADD COLUMN variants TEXT")
+        ocols = [c[1] for c in conn.execute("PRAGMA table_info(order_items)")]
+        if "variant" not in ocols:
+            conn.execute("ALTER TABLE order_items ADD COLUMN variant TEXT")
+        # скидки убраны: перечёркнутых цен больше нет
+        conn.execute("UPDATE products SET old_price = NULL WHERE old_price IS NOT NULL")
         # товары: вставляем отсутствующие, остатки и цены не перетираем
         for p in catalog["products"]:
             row = conn.execute("SELECT id, stock FROM products WHERE id = ?", (p["id"],)).fetchone()
             if row is None:
                 conn.execute(
                     """INSERT INTO products (id, slug, name, category, subcategory, price, old_price,
-                       emoji, weight, description, features, stock, rating, reviews, badge)
-                       VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                       emoji, weight, description, features, stock, rating, reviews, badge, variants)
+                       VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
                     (p["id"], p["slug"], p["name"], p["category"], p["subcategory"], p["price"],
-                     p["oldPrice"], p["emoji"], p["weight"], p["description"],
+                     None, p["emoji"], p["weight"], p["description"],
                      json.dumps(p["features"], ensure_ascii=False), p["stock"], p["rating"],
-                     p["reviews"], p["badge"]),
+                     p["reviews"], None,
+                     json.dumps(p.get("variants"), ensure_ascii=False) if p.get("variants") else None),
                 )
 
 
@@ -131,6 +140,7 @@ def product_public(row):
         "rating": row["rating"],
         "reviews": row["reviews"],
         "badge": row["badge"],
+        "variants": json.loads(row["variants"]) if row["variants"] else None,
     }
 
 
@@ -160,7 +170,7 @@ def get_product(slug):
 # Корзина и заказ
 # ==========================================================================
 def normalize_items(raw_items):
-    """Проверяет корзину и подтягивает актуальные цены из БД."""
+    """Проверяет корзину и подтягивает актуальные цены из БД. Поддерживает варианты (размер/цвет)."""
     if not isinstance(raw_items, list) or not raw_items:
         return None, "Корзина пуста"
     merged = {}
@@ -170,21 +180,32 @@ def normalize_items(raw_items):
             qty = int(it.get("qty", 1))
         except (TypeError, ValueError):
             return None, "Некорректный товар в корзине"
+        variant = (it.get("variant") or "").strip()[:40] or None
         if qty < 1 or qty > 99:
             return None, "Количество должно быть от 1 до 99"
-        merged[pid] = merged.get(pid, 0) + qty
+        key = (pid, variant)
+        merged[key] = merged.get(key, 0) + qty
 
     items, with_db = [], db()
     try:
-        for pid, qty in merged.items():
+        for (pid, variant), qty in merged.items():
             row = with_db.execute("SELECT * FROM products WHERE id = ? AND active = 1", (pid,)).fetchone()
             if not row:
                 return None, "Товар не найден в каталоге"
-            if row["stock"] < qty:
+            variants = json.loads(row["variants"]) if row["variants"] else None
+            if variants:
+                if not variant:
+                    return None, f"«{row['name']}» — выберите вариант"
+                v = next((x for x in variants if x["label"] == variant), None)
+                if not v:
+                    return None, f"«{row['name']}» — такого варианта нет"
+                if v["stock"] < qty:
+                    return None, f"«{row['name']}» ({variant}) — в наличии только {v['stock']} шт."
+            elif row["stock"] < qty:
                 return None, f"«{row['name']}» — в наличии только {row['stock']} шт."
             items.append({"id": row["id"], "name": row["name"], "price": row["price"],
                           "qty": qty, "weight": row["weight"], "emoji": row["emoji"],
-                          "stock": row["stock"]})
+                          "stock": row["stock"], "variant": variant})
     finally:
         with_db.close()
     return items, None
@@ -260,6 +281,14 @@ def create_order(payload):
             if cur.rowcount == 0:
                 conn.rollback()
                 return 409, {"error": f"«{i['name']}» только что закончился на складе"}
+            if i.get("variant"):
+                row = conn.execute("SELECT variants FROM products WHERE id = ?", (i["id"],)).fetchone()
+                vs = json.loads(row["variants"]) if row and row["variants"] else []
+                for v in vs:
+                    if v["label"] == i["variant"]:
+                        v["stock"] = max(0, v["stock"] - i["qty"])
+                conn.execute("UPDATE products SET variants = ? WHERE id = ?",
+                             (json.dumps(vs, ensure_ascii=False), i["id"]))
         number = next_order_number(conn)
         cur = conn.execute(
             """INSERT INTO orders (number, created_at, status, subtotal, delivery_price, total,
@@ -273,8 +302,8 @@ def create_order(payload):
         order_id = cur.lastrowid
         for i in items:
             conn.execute(
-                "INSERT INTO order_items (order_id, product_id, name, price, qty) VALUES (?,?,?,?,?)",
-                (order_id, i["id"], i["name"], i["price"], i["qty"]),
+                "INSERT INTO order_items (order_id, product_id, name, price, qty, variant) VALUES (?,?,?,?,?,?)",
+                (order_id, i["id"], i["name"], i["price"], i["qty"], i.get("variant")),
             )
         conn.commit()
     finally:
@@ -325,7 +354,8 @@ def get_order(number):
         "customer": json.loads(row["customer_json"] or "{}"),
         "comment": row["comment"],
         "paidAt": row["paid_at"],
-        "items": [{"id": i["product_id"], "name": i["name"], "price": i["price"], "qty": i["qty"]} for i in items],
+        "items": [{"id": i["product_id"], "name": i["name"], "price": i["price"], "qty": i["qty"],
+                   "variant": i["variant"]} for i in items],
     }
 
 
@@ -335,8 +365,16 @@ def cancel_order(number, restore_stock=False, reason=""):
         if not row or row["status"] == "cancelled":
             return False
         if restore_stock:
-            for it in conn.execute("SELECT product_id, qty FROM order_items WHERE order_id = ?", (row["id"],)):
+            for it in conn.execute("SELECT product_id, qty, variant FROM order_items WHERE order_id = ?", (row["id"],)):
                 conn.execute("UPDATE products SET stock = stock + ? WHERE id = ?", (it["qty"], it["product_id"]))
+                if it["variant"]:
+                    r = conn.execute("SELECT variants FROM products WHERE id = ?", (it["product_id"],)).fetchone()
+                    vs = json.loads(r["variants"]) if r and r["variants"] else []
+                    for v in vs:
+                        if v["label"] == it["variant"]:
+                            v["stock"] = v["stock"] + it["qty"]
+                    conn.execute("UPDATE products SET variants = ? WHERE id = ?",
+                                 (json.dumps(vs, ensure_ascii=False), it["product_id"]))
         conn.execute("UPDATE orders SET status = 'cancelled' WHERE id = ?", (row["id"],))
     log_event("warn", f"заказ {number} отменён: {reason or 'без причины'}")
     return True
@@ -500,9 +538,14 @@ class Handler(BaseHTTPRequestHandler):
                 return self._json(401, {"error": "Нужен вход"})
             with db() as conn:
                 rows = conn.execute(
-                    "SELECT id, slug, name, category, subcategory, price, old_price, stock, emoji, active "
+                    "SELECT id, slug, name, category, subcategory, price, old_price, stock, emoji, active, variants "
                     "FROM products ORDER BY id").fetchall()
-            return self._json(200, {"products": [dict(r) for r in rows]})
+            out = []
+            for r in rows:
+                d = dict(r)
+                d["variants"] = json.loads(d["variants"]) if d["variants"] else None
+                out.append(d)
+            return self._json(200, {"products": out})
         if path == "/api/admin/orders":
             if not check_admin(self.headers):
                 return self._json(401, {"error": "Нужен вход"})

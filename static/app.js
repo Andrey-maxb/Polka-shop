@@ -32,9 +32,14 @@ async function api(path, opts = {}) {
 function cartItems() {
   if (!state.catalog) return [];
   return Object.entries(state.cart)
-    .map(([id, qty]) => ({ ...state.catalog.products.find((p) => p.id === Number(id)), qty }))
+    .map(([key, qty]) => {
+      const [id, variant] = key.split('|');
+      const p = state.catalog.products.find((x) => x.id === Number(id));
+      return p ? { ...p, qty, variant: variant || null, key } : null;
+    })
     .filter((i) => i && i.id && i.price);
 }
+const itemKey = (id, variant) => `${id}|${variant || ''}`;
 const cartCount = () => cartItems().reduce((s, i) => s + i.qty, 0);
 const cartSum = () => cartItems().reduce((s, i) => s + i.price * i.qty, 0);
 
@@ -42,24 +47,29 @@ function saveCart() {
   localStorage.setItem('polka_cart', JSON.stringify(state.cart));
   paintCartCount();
 }
-function addToCart(id, qty = 1, silent = false) {
+function addToCart(id, qty = 1, variant = null, silent = false) {
   const p = state.catalog.products.find((x) => x.id === id);
   if (!p) return;
-  const cur = state.cart[id] || 0;
-  if (cur + qty > p.stock) {
-    toast(`На складе только ${p.stock} ${plural(p.stock, 'штука', 'штуки', 'штук')}`, 'err');
+  if (p.variants && !variant) { toast('Выберите размер', 'err'); return; }
+  const key = itemKey(id, variant);
+  const cur = state.cart[key] || 0;
+  const limit = p.variants ? (p.variants.find((v) => v.label === variant)?.stock ?? 0) : p.stock;
+  if (cur + qty > limit) {
+    toast(`В наличии только ${limit} ${plural(limit, 'штука', 'штуки', 'штук')}`, 'err');
     return;
   }
-  state.cart[id] = cur + qty;
+  state.cart[key] = cur + qty;
   saveCart();
-  if (!silent) toast(`Добавлено: ${p.name}`, 'ok');
+  if (!silent) toast(`Добавлено: ${p.name}${variant ? ', ' + variant : ''}`, 'ok');
   if ($('#cartDrawer')) paintDrawer();
 }
-function setQty(id, qty) {
-  const p = state.catalog.products.find((x) => x.id === id);
+function setQty(key, qty) {
+  const [id, variant] = String(key).split('|');
+  const p = state.catalog.products.find((x) => x.id === Number(id));
   if (!p) return;
-  if (qty < 1) { delete state.cart[id]; }
-  else state.cart[id] = Math.min(qty, p.stock);
+  const limit = p.variants ? (p.variants.find((v) => v.label === variant)?.stock ?? 0) : p.stock;
+  if (qty < 1) delete state.cart[key];
+  else state.cart[key] = Math.min(qty, limit);
   saveCart();
   if ($('#cartDrawer')) paintDrawer();
   if (location.hash.startsWith('#/cart') || location.hash.startsWith('#/checkout')) route();
@@ -96,9 +106,8 @@ function paintCatnav() {
    ========================================================================== */
 function viewHome() {
   const products = state.catalog.products;
-  const hits = [...products].filter((p) => p.badge === 'Хит').slice(0, 4);
-  const discounted = [...products].filter((p) => p.oldPrice).sort((a, b) => (b.oldPrice - b.price) / b.oldPrice - (a.oldPrice - a.price) / a.price).slice(0, 8);
   const fresh = products.slice(-8).reverse();
+  const popularCats = [...state.catalog.categories];
 
   app.innerHTML = `
   <section class="hero"><div class="wrap"><div class="hero-grid">
@@ -142,19 +151,14 @@ function viewHome() {
     </div>
   </div></section>
 
-  ${hits.length ? `<section class="section"><div class="wrap">
-    <div class="section-head"><div><h2>Хиты продаж</h2><p>Чаще всего заказывают в этом месяце</p></div>
-    <a class="btn btn-ghost" href="#/catalog?sort=popular">Все товары</a></div>
-    <div class="grid">${hits.map(cardHtml).join('')}</div></div></section>` : ''}
-
   <section class="section"><div class="wrap">
-    <div class="section-head"><div><h2>Скидки недели</h2><p>Цены снижены до конца месяца</p></div>
-    <a class="btn btn-ghost" href="#/catalog?sort=discount">Смотреть все</a></div>
-    <div class="grid">${discounted.map(cardHtml).join('')}</div>
+    <div class="section-head"><div><h2>Все товары</h2><p>${products.length} позиций в наличии и под заказ</p></div>
+    <a class="btn btn-ghost" href="#/catalog">Открыть каталог</a></div>
+    <div class="grid">${products.slice(0, 8).map(cardHtml).join('')}</div>
   </div></section>
 
   <section class="section"><div class="wrap">
-    <div class="section-head"><div><h2>Новинки</h2><p>Только что добавили на полку</p></div>
+    <div class="section-head"><div><h2>Новинки</h2><p>Последние добавленные позиции</p></div>
     <a class="btn btn-ghost" href="#/catalog?sort=new">Все новинки</a></div>
     <div class="grid">${fresh.map(cardHtml).join('')}</div>
   </div></section>`;
@@ -175,7 +179,6 @@ function cardHtml(p) {
     <div class="card-body">
       <div class="card-cat">${esc(state.catalog.subcategories[p.subcategory] || '')}</div>
       <a class="card-name" href="#/product/${p.slug}">${esc(p.name)}</a>
-      <div class="rating"><span class="star">★</span> ${p.rating} · ${p.reviews} отз.</div>
       <div class="card-foot">
         <div><span class="price">${money(p.price)}</span>${p.oldPrice ? `<span class="price-old">${money(p.oldPrice)}</span>` : ''}</div>
         <button class="add-mini" data-add="${p.id}" ${!p.inStock ? 'disabled' : ''} title="В корзину" aria-label="Добавить в корзину">+</button>
@@ -312,7 +315,7 @@ function viewProduct(slug) {
     <div class="product-grid">
       <div class="product-media">${p.image ? `<img src="${esc(p.image)}" alt="${esc(p.name)}">` : `<span class="emoji">${p.emoji}</span>`}<span class="watermark">ПОЛКА · ${esc(sub)}</span></div>
       <div class="product-info">
-        <div class="rating" style="margin-bottom:8px"><span class="star">★</span> ${p.rating} · ${p.reviews} ${plural(p.reviews, 'отзыв', 'отзыва', 'отзывов')} · <span style="color:${p.inStock ? 'var(--ok)' : 'var(--sale)'}">${p.inStock ? 'В наличии: ' + p.stock + ' шт.' : 'Нет в наличии'}</span></div>
+        <div style="margin-bottom:8px;font-size:13px;color:${p.inStock ? 'var(--ok)' : 'var(--sale)'}">${p.inStock ? 'В наличии: ' + p.stock + ' шт.' : 'Нет в наличии'}</div>
         <h1>${esc(p.name)}</h1>
         <div class="product-price">
           <span class="price">${money(p.price)}</span>
@@ -324,6 +327,12 @@ function viewProduct(slug) {
         <ul class="features">${p.features.map((f) => `<li>${esc(f)}</li>`).join('')}</ul>
 
         <div class="buy-box">
+          ${p.variants ? `<div class="variant-block">
+            <div class="variant-label">Размер: <b id="variantPicked">выберите</b></div>
+            <div class="variant-list" id="variantList">
+              ${p.variants.map((v) => `<button type="button" class="variant-btn ${v.stock === 0 ? 'disabled' : ''}" data-variant="${esc(v.label)}" ${v.stock === 0 ? 'disabled' : ''} title="${v.stock > 0 ? 'в наличии ' + v.stock + ' шт.' : 'нет в наличии'}">${esc(v.label)}</button>`).join('')}
+            </div>
+          </div>` : ''}
           <div class="buy-row">
             <div class="qty">
               <button data-q="-1" aria-label="Меньше">−</button>
@@ -365,11 +374,26 @@ function viewProduct(slug) {
   </div></div>`;
 
   let qty = 1;
+  let chosen = null;
+  const variantStock = () => (p.variants ? (p.variants.find((v) => v.label === chosen)?.stock ?? 0) : p.stock);
   $$('[data-q]').forEach((b) => b.onclick = () => {
-    qty = Math.max(1, Math.min(p.stock || 1, qty + Number(b.dataset.q)));
+    qty = Math.max(1, Math.min(variantStock() || 1, qty + Number(b.dataset.q)));
     $('#qtyVal').textContent = qty;
   });
-  $('#addBtn').onclick = () => { addToCart(p.id, qty); openDrawer(); };
+  if (p.variants) {
+    $$('[data-variant]').forEach((b) => b.onclick = () => {
+      chosen = b.dataset.variant;
+      $$('[data-variant]').forEach((x) => x.classList.toggle('active', x === b));
+      $('#variantPicked').textContent = chosen;
+      qty = 1;
+      $('#qtyVal').textContent = qty;
+    });
+  }
+  $('#addBtn').onclick = () => {
+    if (p.variants && !chosen) { toast('Выберите размер', 'err'); return; }
+    addToCart(p.id, qty, chosen);
+    openDrawer();
+  };
 }
 
 /* ---------------- корзина (страница) ---------------- */
@@ -394,10 +418,10 @@ function viewCart() {
             <a class="cart-thumb" href="#/product/${i.slug}">${i.image ? `<img src="${esc(i.image)}" alt="">` : i.emoji}</a>
             <div>
               <a class="name" href="#/product/${i.slug}">${esc(i.name)}</a>
-              <div class="meta">${money(i.price)} · ${i.weight} кг${i.stock < 5 ? ` · <span style="color:var(--warn)">осталось ${i.stock} шт.</span>` : ''}</div>
+              <div class="meta">${i.variant ? `<b>${esc(i.variant)}</b> · ` : ''}${money(i.price)} · ${i.weight} кг</div>
               <div style="margin-top:8px;display:flex;gap:14px;align-items:center">
-                <div class="qty"><button data-dec="${i.id}">−</button><span>${i.qty}</span><button data-inc="${i.id}">+</button></div>
-                <button class="remove" data-del="${i.id}">Удалить</button>
+                <div class="qty"><button data-dec="${i.key}">−</button><span>${i.qty}</span><button data-inc="${i.key}">+</button></div>
+                <button class="remove" data-del="${i.key}">Удалить</button>
               </div>
             </div>
             <div style="text-align:right"><div class="price" style="font-size:17px">${money(i.price * i.qty)}</div></div>
@@ -421,9 +445,9 @@ function viewCart() {
     </div>
   </div></div>`;
 
-  $$('[data-inc]').forEach((b) => b.onclick = () => { const id = +b.dataset.inc; setQty(id, (state.cart[id] || 0) + 1); });
-  $$('[data-dec]').forEach((b) => b.onclick = () => { const id = +b.dataset.dec; setQty(id, (state.cart[id] || 0) - 1); });
-  $$('[data-del]').forEach((b) => b.onclick = () => { setQty(+b.dataset.del, 0); toast('Товар удалён'); });
+  $$('[data-inc]').forEach((b) => b.onclick = () => { const k = b.dataset.inc; setQty(k, (state.cart[k] || 0) + 1); });
+  $$('[data-dec]').forEach((b) => b.onclick = () => { const k = b.dataset.dec; setQty(k, (state.cart[k] || 0) - 1); });
+  $$('[data-del]').forEach((b) => b.onclick = () => { setQty(b.dataset.del, 0); toast('Товар удалён'); });
 }
 
 /* ---------------- оформление ---------------- */
@@ -486,7 +510,7 @@ async function viewCheckout() {
           <div style="margin-top:12px;max-height:290px;overflow-y:auto">
             ${items.map((i) => `<div style="display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--line)">
               <div class="cart-thumb" style="width:46px;height:46px;font-size:20px;border-radius:10px">${i.emoji}</div>
-              <div style="flex:1;min-width:0"><div class="small" style="font-weight:550">${esc(i.name)}</div><div class="tiny muted">${i.qty} × ${money(i.price)}</div></div>
+              <div style="flex:1;min-width:0"><div class="small" style="font-weight:550">${esc(i.name)}</div><div class="tiny muted">${i.variant ? 'Размер ' + esc(i.variant) + ' · ' : ''}${i.qty} × ${money(i.price)}</div></div>
               <div class="small nowrap" style="font-variant-numeric:tabular-nums">${money(i.price * i.qty)}</div>
             </div>`).join('')}
           </div>
@@ -545,7 +569,7 @@ async function viewCheckout() {
   }
 
   async function recalc() {
-    const ids = items.map((i) => ({ id: i.id, qty: i.qty }));
+    const ids = items.map((i) => ({ id: i.id, qty: i.qty, variant: i.variant || null }));
     $('#delivVal').textContent = 'считаем…';
     try {
       const q = await api('/api/quote', { method: 'POST', body: JSON.stringify({ items: ids, pvzId: state.checkout.pvz?.id }) });
@@ -627,7 +651,7 @@ async function viewCheckout() {
     btn.innerHTML = '<span class="spinner"></span> Создаём заказ…';
     try {
       const payload = {
-        items: items.map((i) => ({ id: i.id, qty: i.qty })),
+        items: items.map((i) => ({ id: i.id, qty: i.qty, variant: i.variant || null })),
         pvzId: state.checkout.pvz.id,
         customer: { name, phone, email },
         comment: $('#cComment').value.trim(),
@@ -839,7 +863,8 @@ function paintDrawer() {
   body.innerHTML = items.map((i) => `<div class="cart-line" style="grid-template-columns:56px 1fr auto">
     <div class="cart-thumb" style="width:56px;height:56px;font-size:24px;border-radius:12px">${i.emoji}</div>
     <div><div class="small" style="font-weight:550">${esc(i.name)}</div>
-      <div class="qty" style="margin-top:6px"><button data-d="${i.id}">−</button><span>${i.qty}</span><button data-i="${i.id}">+</button></div>
+      ${i.variant ? `<div class="tiny muted">Размер: ${esc(i.variant)}</div>` : ''}
+      <div class="qty" style="margin-top:6px"><button data-d="${i.key}">−</button><span>${i.qty}</span><button data-i="${i.key}">+</button></div>
     </div>
     <div class="small nowrap" style="font-weight:600">${money(i.price * i.qty)}</div>
   </div>`).join('');
@@ -847,8 +872,8 @@ function paintDrawer() {
     <p class="tiny muted">Доставка рассчитывается при оформлении</p>
     <a class="btn btn-primary btn-block btn-lg" href="#/checkout" onclick="closeDrawer()">Оформить заказ</a>
     <a class="btn btn-ghost btn-block" href="#/cart" onclick="closeDrawer()">Перейти в корзину</a>`;
-  $$('[data-i]', body).forEach((b) => b.onclick = () => setQty(+b.dataset.i, (state.cart[b.dataset.i] || 0) + 1));
-  $$('[data-d]', body).forEach((b) => b.onclick = () => setQty(+b.dataset.d, (state.cart[b.dataset.d] || 0) - 1));
+  $$('[data-i]', body).forEach((b) => b.onclick = () => { const k = b.dataset.i; setQty(k, (state.cart[k] || 0) + 1); });
+  $$('[data-d]', body).forEach((b) => b.onclick = () => { const k = b.dataset.d; setQty(k, (state.cart[k] || 0) - 1); });
 }
 
 /* ---------------- роутинг ---------------- */
