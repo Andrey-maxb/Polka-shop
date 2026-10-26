@@ -932,6 +932,10 @@ window.addEventListener('hashchange', route);
     state.catalog = await api('/api/catalog');
     paintCartCount();
     const s = state.catalog.shop;
+    const top = $('#freeFromTop');
+    if (top && state.catalog.delivery?.freeFrom) {
+      top.textContent = `🚚 Бесплатная доставка от ${money(state.catalog.delivery.freeFrom)}`;
+    }
     $('#sellerInfo').textContent = `${s.seller} · ИНН ${s.inn}`;
     $('#supportLink').href = `mailto:${s.email}`;
     route();

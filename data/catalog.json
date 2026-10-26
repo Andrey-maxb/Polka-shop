@@ -143,7 +143,8 @@
      "label": "XXL",
      "stock": 100
     }
-   ]
+   ],
+   "image": "/uploads/p1.webp"
   },
   {
    "id": 2,
@@ -178,7 +179,8 @@
      "label": "XL",
      "stock": 100
     }
-   ]
+   ],
+   "image": "/uploads/p2.webp"
   },
   {
    "id": 3,
@@ -200,7 +202,8 @@
    "rating": 4.7,
    "reviews": 33,
    "badge": null,
-   "variants": null
+   "variants": null,
+   "image": "/uploads/p3.webp"
   },
   {
    "id": 4,
@@ -222,7 +225,8 @@
    "rating": 4.8,
    "reviews": 40,
    "badge": null,
-   "variants": null
+   "variants": null,
+   "image": "/uploads/p4.webp"
   },
   {
    "id": 5,
@@ -244,7 +248,8 @@
    "rating": 4.9,
    "reviews": 47,
    "badge": null,
-   "variants": null
+   "variants": null,
+   "image": "/uploads/p5.webp"
   },
   {
    "id": 6,
@@ -266,7 +271,8 @@
    "rating": 4.4,
    "reviews": 54,
    "badge": null,
-   "variants": null
+   "variants": null,
+   "image": "/uploads/p6.webp"
   },
   {
    "id": 7,
@@ -288,7 +294,8 @@
    "rating": 4.5,
    "reviews": 61,
    "badge": null,
-   "variants": null
+   "variants": null,
+   "image": "/uploads/p7.webp"
   },
   {
    "id": 8,
@@ -310,7 +317,8 @@
    "rating": 4.6,
    "reviews": 68,
    "badge": null,
-   "variants": null
+   "variants": null,
+   "image": "/uploads/p8.webp"
   },
   {
    "id": 9,

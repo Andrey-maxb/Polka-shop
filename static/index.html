@@ -13,7 +13,7 @@
   <div class="wrap">
     <div class="marquee">
       <span>📦 Доставка в 27 000+ пунктов выдачи Ozon по всей России</span>
-      <span>🚚 Бесплатно от 7 000 ₽</span>
+      <span id="freeFromTop">🚚 Бесплатная доставка от 3 433 ₽</span>
       <span>🧾 Электронный чек на почту</span>
     </div>
     <a href="#/delivery">Доставка и оплата</a>
@@ -22,7 +22,10 @@
 
 <header class="header">
   <div class="wrap">
-    <a class="logo" href="#/"><span class="mark">П</span>ПОЛКА</a>
+    <a class="logo" href="#/" aria-label="ПОЛКА — на главную">
+      <span class="logo-word">ПОЛКА</span>
+      <span class="logo-shelf" aria-hidden="true"></span>
+    </a>
     <form class="search" id="searchForm" role="search">
       <span class="icon">🔍</span>
       <input id="searchInput" type="search" placeholder="Найти товар — например, «повербанк» или «футболка»" autocomplete="off" aria-label="Поиск по каталогу">
@@ -43,7 +46,10 @@
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <div class="logo"><span class="mark">П</span> ПОЛКА</div>
+        <div class="logo logo-dark">
+          <span class="logo-word">ПОЛКА</span>
+          <span class="logo-shelf" aria-hidden="true"></span>
+        </div>
         <p>Товары для дома, техники и жизни. Работаем с доставкой в пункты выдачи Ozon по всей России.</p>
         <p class="tiny" id="sellerInfo">ИП Иванов Иван Иванович · ИНН 000000000000</p>
       </div>

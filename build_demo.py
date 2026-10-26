@@ -44,7 +44,7 @@ MOCK = r"""
     });
   }
 
-  const TARIFF = { base: 199, perKg: 39, freeFrom: 7000, maxDays: 7 };
+  const TARIFF = { base: 199, perKg: 39, freeFrom: 3433, maxDays: 7 };
   const SHOP = {
     name: 'ПОЛКА', seller: 'ИП Иванов Иван Иванович', inn: '000000000000',
     email: 'orders@example.ru', phone: '+7 900 000-00-00',
@@ -77,7 +77,7 @@ MOCK = r"""
     };
     const mk = (n, daysAgo, status, items) => {
       const subtotal = items.reduce((s, i) => s + i.price * i.qty, 0);
-      const deliveryPrice = subtotal >= 7000 ? 0 : 199;
+      const deliveryPrice = subtotal >= TARIFF.freeFrom ? 0 : 199;
       return {
         number: 'PLK-26' + String(n).padStart(4, '0'),
         createdAt: new Date(Date.now() - daysAgo * 86400000).toISOString(),
@@ -314,17 +314,58 @@ MOCK = MOCK.replace("__CATALOG__", json.dumps(catalog, ensure_ascii=False)) \
            .replace("__PVZ__", json.dumps(pvz, ensure_ascii=False))
 
 
-def build_store():
+def _embed_images(html, products):
+    """Встраивает фото как data URI — версия, которая работает без сервера и без сети."""
+    import base64
+    import re
+    for p in products:
+        img = p.get("image")
+        if not img:
+            continue
+        stem = os.path.basename(img).rsplit(".", 1)[0]
+        small = os.path.join(STATIC, "uploads", f"{stem}-sm.webp")
+        full = os.path.join(STATIC, "uploads", f"{stem}.webp")
+        path = small if os.path.exists(small) else full
+        if not os.path.exists(path):
+            continue
+        mime = "image/webp"
+        data = base64.b64encode(open(path, "rb").read()).decode()
+        html = html.replace(f'"/uploads/{stem}.webp"', f'"data:{mime};base64,{data}"')
+    return html
+
+
+def _relative_images(html):
+    """Для GitHub Pages: пути к фото относительно папки docs/."""
+    return html.replace('"/uploads/', '"uploads/')
+
+
+def build_store(embed_images=True):
     html = index_html
     html = html.replace('<link rel="stylesheet" href="/store.css">', f"<style>\n{store_css}\n</style>")
     html = html.replace('<a href="/admin" class="tiny">Вход для сотрудников</a>',
                         '<a href="admin-demo.html" class="tiny">Вход для сотрудников (демо)</a>')
     html = html.replace('<script src="/app.js"></script>',
                         f"<script>\n{MOCK}\n</script>\n<script>\n{store_js}\n</script>")
+    html = _embed_images(html, catalog["products"]) if embed_images else _relative_images(html)
     # в автономной версии верхняя плашка предупреждает, что это демо
     html = html.replace('<span>🧾 Электронный чек на почту</span>',
                         '<span>🧾 Электронный чек на почту</span>\n      <span>🧪 Демо-режим: платежи имитируются</span>')
     out = os.path.join(STATIC, "demo.html")
+    open(out, "w", encoding="utf-8").write(html)
+    return out
+
+
+def build_pages():
+    """Версия для GitHub Pages: один файл + папка uploads рядом."""
+    html = index_html
+    html = html.replace('<link rel="stylesheet" href="/store.css">', f"<style>\n{store_css}\n</style>")
+    html = html.replace('<a href="/admin" class="tiny">Вход для сотрудников</a>',
+                        '<a href="admin-demo.html" class="tiny">Вход для сотрудников (демо)</a>')
+    html = html.replace('<script src="/app.js"></script>',
+                        f"<script>\n{MOCK}\n</script>\n<script>\n{store_js}\n</script>")
+    html = _relative_images(html)
+    os.makedirs(os.path.join(BASE, "docs"), exist_ok=True)
+    out = os.path.join(BASE, "docs", "index.html")
     open(out, "w", encoding="utf-8").write(html)
     return out
 
@@ -346,7 +387,8 @@ def build_admin():
 
 
 if __name__ == "__main__":
-    a = build_store()
+    a = build_store(embed_images=True)
     b = build_admin()
-    for f in (a, b):
+    c = build_pages()
+    for f in (a, b, c):
         print(f"готово: {f}  ({os.path.getsize(f) // 1024} КБ)")

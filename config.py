@@ -46,7 +46,7 @@ OZON_API_BASE = _env("OZON_API_BASE", "https://api-seller.ozon.ru")
 
 DELIVERY_BASE = float(_env("DELIVERY_BASE", "199"))       # базовая стоимость до ПВЗ, ₽
 DELIVERY_PER_KG = float(_env("DELIVERY_PER_KG", "39"))    # за каждый кг свыше 1 кг
-DELIVERY_FREE_FROM = float(_env("DELIVERY_FREE_FROM", "7000"))  # бесплатно от суммы, 0 = выключить
+DELIVERY_FREE_FROM = float(_env("DELIVERY_FREE_FROM", "3433"))  # бесплатно от суммы, 0 = выключить
 DELIVERY_MAX_DAYS = int(_env("DELIVERY_MAX_DAYS", "7"))
 
 # --- оплата и облачная касса (54-ФЗ) ---
