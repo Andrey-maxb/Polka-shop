@@ -516,7 +516,8 @@
    "rating": 4.9,
    "reviews": 131,
    "badge": null,
-   "variants": null
+   "variants": null,
+   "image": "/uploads/p17.webp"
   },
   {
    "id": 18,
@@ -538,7 +539,8 @@
    "rating": 4.4,
    "reviews": 138,
    "badge": null,
-   "variants": null
+   "variants": null,
+   "image": "/uploads/p18.webp"
   },
   {
    "id": 19,
